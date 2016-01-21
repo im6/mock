@@ -1,0 +1,311 @@
+extends layout
+block homeContent
+    #fullMask(data-ismobile='false', style='position:fixed; top:0; left:0; width:100%; height:100%; z-index: 130; background-color: black;padding-top:120px;')
+        .circle
+        .circle1
+    //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    //-Section menubar
+    section#sct_menubar
+        img#menubar_img(src='/app/homepage/content/image/logo/ZJguo_americanIdol_mini.png', alt='img', title='Back to Homepage')
+        #menubar
+            ul
+                li
+                    a(href='#') 技能
+                li
+                    a(href='#') 经验
+                li
+                    a(href='#') 学业
+                li
+                    a(href='/PlayGround/Index') 网站
+                li
+                    a(href='#') 留言
+                li
+                    a(href='/home')  English
+                li
+                    input#searchBar.topcoat-search-input--large(type='search', value='', placeholder='页面搜索', title='Search in page')
+    //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    section#sct1(data-type='background')
+    section#sct1_2
+        #sct1_2_text
+            h1 你好
+            p
+                | 欢迎来到子剑的个人网页。子剑目前忙于工作，抽空做个网站
+                | ，上传一些自己的照片。我还将事业和生活的轨迹尽量写进来。感谢关注，谢谢！更多详情，点击
+                a(href='/playground', target='_blank', style='color: white') 这里
+                | 。
+    //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    section#sct2.dashboard
+        article#skillfont
+            h1.skill1 技能
+            br
+            h2.skill2 设计与编程
+        #sct2_table
+            ul.stats
+                li
+                    table
+                        tr
+                            td
+                                .skill-shortcut-html
+                            td
+                                h2 HTML + CSS
+                                p  HTML5, CSS3
+                            td
+                                .meter.animate.sizebar
+                                    span(style='width: 65%')
+                li
+                    table
+                        tr
+                            td
+                                .skill-shortcut-jquery
+                            td
+                                h2 Front-End
+                                p  jQ, ng, ko, Ext js
+                            td
+                                .meter.animate.sizebar
+                                    span(style='width: 85%')
+                li
+                    table
+                        tr
+                            td
+                                .skill-shortcut-ps
+                            td
+                                h2 Photoshop
+                                p  Photoshop
+                            td
+                                .meter.animate.sizebar
+                                    span(style='width: 55%')
+                li
+                    table
+                        tr
+                            td
+                                .skill-shortcut-oop
+                            td
+                                h2 Back-End
+                                p  .NET(c#), node.js(express)
+                            td
+                                .meter.animate.sizebar
+                                    span(style='width: 70%')
+                li
+                    table
+                        tr
+                            td
+                                .skill-shortcut-sql
+                            td
+                                h2 Database
+                                p T-SQL, MongoDB
+                            td
+                                .meter.animate.sizebar
+                                    span(style='width: 58%')
+                li
+                    table
+                        tr
+                            td
+                                .skill-shortcut-fpga
+                            td
+                                h2 Hardware Program
+                                p VHDL, Verilog, ASIC
+                            td
+                                .meter.animate.sizebar
+                                    span(style='width: 60%')
+                li
+                    table
+                        tr
+                            td
+                                .skill-shortcut-cms
+                            td
+                                h2 CMS
+                                p WordPress, Squarespace
+                            td
+                                .meter.animate.sizebar
+                                    span(style='width: 50%')
+    //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    section#sct3
+        div
+            img(src='/app/homepage/content/image/background/img_sct3.png')
+    //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    section#sct3_1.dashboard
+        #sct3_1_info
+            h1 郭子剑
+            p
+                | 国籍 : 中国大陆
+                br
+                |                 现位于 : 纽约曼哈顿
+            button#timelineToggle.topcoat-button--large 查看时间线
+    //--------------------------------------------------------------------
+    //-----section Timeline---------------------------------------------------------------
+    section#sctTL
+        #timelineContainer
+            #tlLoader
+                .circle
+                .circle1
+    //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    section#sct6(data-type='background')
+    //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    section#sct4.dashboard
+        article#schoolfont
+            h1.school1 学业背景
+            br
+            h2.school2 学校信息
+        table#school-shortcuts(border='0')
+            tr
+                td
+                    .school-shortcut-nyu
+                td
+                    h4.univ-name 纽约大学
+                td
+                    p
+                        | 工程学院
+                        br
+                        | 2012年9月-2014年5月
+                        br
+                        | 电子工程
+            tr
+                td
+                    .school-shortcut-cugb
+                td
+                    h4.univ-name 中国地质大学
+                td
+                    p
+                        | 地球物理与信息技术学院
+                        br
+                        | 2008年9月 - 2012年6月
+                        br
+                        | 测控技术与仪器
+            tr
+                td
+                    .school-shortcut-sz
+                td
+                    h4.univ-name 山西省实验中学
+                td
+                    p
+                        | 山西，太原
+                        br
+                        | 2005九月 - 2008六月
+    //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    section#sct5(data-type='background')
+        h1.smush-it 传送门
+        table#sct5_Table(border='0')
+            tr
+                td
+                    a(href='https://code.msdn.microsoft.com/101-LINQ-Samples-3fb9811b')
+                        h3 LINQ
+                td
+                    a(href='http://www.w3schools.com/sql/')
+                        h3 T-SQL
+                td
+                    a(href='#')
+                        h3 Data Visualization
+            tr
+                td
+                    a(href='http://api.jquery.com/')
+                        h3 jQuery
+                td
+                    a(href='http://backbonejs.org/')
+                        h3 BackBone JS
+                td
+                    a(href='https://developers.google.com/+/quickstart/javascript')
+                        h3 Google API
+            tr
+                td
+                    a(href='https://docs.python.org/2/c-api/')
+                        h3 Python
+                td
+                    a(href='http://getbootstrap.com/')
+                        h3 Bootstrap
+                td
+                    a(href='#')
+                        h3 Data Structure
+            tr
+                td
+                    a(href='#')
+                        h3 MVC
+                td
+                    a(href='http://www.oracle.com/technetwork/java/javaee/overview/index.html')
+                        h3 Java EE
+                td
+                    a(href='http://knockoutjs.com/documentation/introduction.html')
+                        h3 Knockout
+            tr
+                td
+                    a(href='http://www.mysql.com/')
+                        h3 mySQL
+                td
+                    a(href='https://github.com/')
+                        h3 GitHub
+                td
+                    a(href='http://stackoverflow.com/')
+                        h3 StackOverFlow
+            tr
+                td
+                    a(href='http://msdn.microsoft.com/en-us/vstudio/aa496123.aspx')
+                        h3 .NET
+                td
+                    a(href='http://www.w3schools.com/html/html5_intro.asp')
+                        h3 HTML5
+                td
+                    a(href='https://www.jetbrains.com/')
+                        h3 JetBrains
+            tr
+                td
+                    a(href='http://www.sencha.com/products/extjs/')
+                        h3 Ext JS
+                td
+                    a(href='https://docs.angularjs.org/api?PHPSESSID=cae8e98e7ca559b4605d75c813b358ee')
+                        h3 Angular JS
+                td
+                    a(href='#')
+                        h3 Algorithm
+    //--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    section#msgboard.dashboard
+        #switchContainer
+            .switch
+                input#MsgSwitch.switch-check(type='checkbox')
+                label.switch-label(for='MsgSwitch')
+                    | Check
+                    span
+        #social-icon
+            //---------
+            ul#contact-shortcuts
+                li
+                    a.contact-shortcut-linkedin.btnGrayScale(target='_blank', title='LinkedIn', href='http://www.linkedin.com/profile/view?id=268116945')
+                li
+                    a.contact-shortcut-google.btnGrayScale(target='_blank', title='Google+', href='https://plus.google.com/u/1/105749580437093457132/posts')
+                li
+                    a.contact-shortcut-weibo.btnGrayScale(target='_blank', title='新浪微博', href='http://www.weibo.com/111581118')
+                li
+                    a.contact-shortcut-facebook.btnGrayScale(target='_blank', title='Facebook', href='https://www.facebook.com/zijian.guo.7')
+                li
+                    a.contact-shortcut-youtube.btnGrayScale(target='_blank', title='Youtube', href='https://www.youtube.com/channel/UCR4kMj-01Y-oKRVl5r_emeQ')
+                li
+                    a.contact-shortcut-zhihu.btnGrayScale(target='_blank', title='知乎', href='http://www.zhihu.com/people/chinaNBA')
+            div(style='clear: both')
+            //---------
+            a#contactAddr-shortcuts(href='#', target='_blank')
+            h4
+                a(href='#') 郭子剑设计, www.GuoZJ.com
+        #MsgContainer.msgclass
+            h4 留言板
+            form
+                input#MsgName.topcoat-text-input--large(type='text', value='', placeholder='昵称')
+                br
+                br
+                textarea#MsgContent.topcoat-textarea(rows='6', cols='50', placeholder='留言内容')
+                br
+                br
+                button#sumbitMsgBtn.topcoat-button--large(title='给我发邮件更可靠!') 提交
+                button#likebtn.topcoat-button--large--cta +1
+            span#MsgFail.topcoat-notification 不能为空
+            span#MsgSuccess.topcoat-success 谢谢
+            #ajaxLoader
+                .circle
+                .circle1
+    section#map-canvas

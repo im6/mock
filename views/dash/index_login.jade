@@ -1,0 +1,102 @@
+extends layout_login
+
+block loginContent
+    //- BEGIN LOGO
+    .logo
+        a(href='index.html')
+            img(src='/assets/metronic/pages/img/logo-big-white.png', style='height: 17px;', alt='')
+    //- END LOGO
+    //- BEGIN LOGIN
+    .content
+        //- BEGIN LOGIN FORM
+        form.login-form(action='account/login', method='post')
+            .form-title
+                span.form-title Welcome.
+                span.form-subtitle Please login.
+            .alert.alert-danger.display-hide
+                button.close(data-close='alert')
+                span  Enter any username and password.
+            .form-group
+                // ie8, ie9 does not support html5 placeholder, so we just show field title for that
+                label.control-label.visible-ie8.visible-ie9 Username
+                input.form-control.form-control-solid.placeholder-no-fix(type='text', autocomplete='off', placeholder='Username', name='username')
+            .form-group
+                label.control-label.visible-ie8.visible-ie9 Password
+                input.form-control.form-control-solid.placeholder-no-fix(type='password', autocomplete='off', placeholder='Password', name='password')
+            .form-actions
+                button.btn.red.btn-block.uppercase(type='submit') Login
+            .form-actions
+                .pull-left
+                    label.rememberme.check
+                        input(type='checkbox', name='remember', value='1')
+                        | Remember me
+                .pull-right.forget-password-block
+                    a#forget-password.forget-password(href='javascript:;') Forgot Password?
+            .login-options
+                h4.pull-left Or login with
+                ul.social-icons.pull-right
+                    li
+                        a.social-icon-color.facebook(data-original-title='facebook', href='javascript:;')
+                    li
+                        a.social-icon-color.twitter(data-original-title='Twitter', href='javascript:;')
+                    li
+                        a.social-icon-color.googleplus(data-original-title='Goole Plus', href='javascript:;')
+                    li
+                        a.social-icon-color.linkedin(data-original-title='Linkedin', href='javascript:;')
+            .create-account
+                p
+                    a#register-btn.btn-primary.btn(href='javascript:;') Create an account
+        //- END LOGIN FORM
+        //- BEGIN FORGOT PASSWORD FORM
+        form.forget-form(action='/account/forget', method='post')
+            .form-title
+                span.form-title Forget Password ?
+                span.form-subtitle Enter your e-mail to reset it.
+            .form-group
+                input.form-control.placeholder-no-fix(type='text', autocomplete='off', placeholder='Email', name='email')
+            .form-actions
+                button#back-btn.btn.btn-default(type='button') Back
+                button.btn.btn-primary.uppercase.pull-right(type='submit') Submit
+        //- END FORGOT PASSWORD FORM
+        //- BEGIN REGISTRATION FORM
+        form.register-form(action='index.html', method='post')
+            .form-title
+                span.form-title Sign Up
+            p.hint  Enter your personal details below:
+            .form-group
+                label.control-label.visible-ie8.visible-ie9 Full Name
+                input.form-control.placeholder-no-fix(type='text', placeholder='Full Name', name='fullname')
+            .form-group
+                // ie8, ie9 does not support html5 placeholder, so we just show field title for that
+                label.control-label.visible-ie8.visible-ie9 Email
+                input.form-control.placeholder-no-fix(type='text', placeholder='Email', name='email')
+            .form-group
+                label.control-label.visible-ie8.visible-ie9 Address
+                input.form-control.placeholder-no-fix(type='text', placeholder='Address', name='address')
+            .form-group
+                label.control-label.visible-ie8.visible-ie9 City/Town
+                input.form-control.placeholder-no-fix(type='text', placeholder='City/Town', name='city')
+            p.hint  Enter your account details below:
+            .form-group
+                label.control-label.visible-ie8.visible-ie9 Username
+                input.form-control.placeholder-no-fix(type='text', autocomplete='off', placeholder='Username', name='username')
+            .form-group
+                label.control-label.visible-ie8.visible-ie9 Password
+                input#register_password.form-control.placeholder-no-fix(type='password', autocomplete='off', placeholder='Password', name='password')
+            .form-group
+                label.control-label.visible-ie8.visible-ie9 Re-type Your Password
+                input.form-control.placeholder-no-fix(type='password', autocomplete='off', placeholder='Re-type Your Password', name='rpassword')
+            .form-group.margin-top-20.margin-bottom-20
+                label.check
+                    input(type='checkbox', name='tnc')
+                    span.loginblue-font I agree to the
+                    a.loginblue-link(href='javascript:;') Terms of Service
+                    span.loginblue-font and
+                    a.loginblue-link(href='javascript:;') Privacy Policy
+                #register_tnc_error
+            .form-actions
+                button#register-back-btn.btn.btn-default(type='button') Back
+                button#register-submit-btn.btn.red.uppercase.pull-right(type='submit') Submit
+        //- END REGISTRATION FORM
+    .copyright.hide  2016 © ZJ Guo. Dash
+
