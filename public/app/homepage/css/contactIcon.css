@@ -1,0 +1,58 @@
+/*=========icon Image Background Start====================*/
+/* Hi-res backgrounds */
+#contact-shortcuts > li > a
+{
+    background-image: url(../../../content/homepage/image/icon/web_contact.png) !important;
+    background-size: 602px 80px !important;
+}
+
+.contact-shortcut-linkedin	{ background-position: 0 0 !important; }
+.contact-shortcut-google	{ background-position: -40px 0 !important; }
+.contact-shortcut-renren	{ background-position: -80px 0 !important; }
+
+.contact-shortcut-weibo	{ background-position: 0 -40px !important; }
+.contact-shortcut-facebook	{ background-position: -40px -40px !important; }
+.contact-shortcut-youtube	{ background-position: -80px -40px !important; }
+.contact-shortcut-wechat	{ background-position: -120px 0 !important; }
+.contact-shortcut-zhihu	{ background-position: -120px -40px !important; }
+
+#contactAddr-shortcuts
+{
+    display: inline-block;
+    width: 442px;
+    height: 80px;
+    margin: 10px 0 0 3px;
+    background-image: url(../../../content/homepage/image/icon/web_contact.png) !important;
+    background-size: 602px 80px !important;
+    background-position: 442px 0px !important;
+}
+
+#school-shortcuts > tbody > tr > td > div
+{
+    background-image: url(../../../content/homepage/image/icon/web_school.png) !important;
+    background-size: 204px 152px !important;
+}
+
+.school-shortcut-nyu { background-position: 0 0 !important; width: 204px; }
+.school-shortcut-cugb { background-position: -125px -76px !important; width: 79px; }
+.school-shortcut-sz { background-position: 0 -76px !important;width: 109px; }
+
+.skill-shortcut-html, .skill-shortcut-jquery, .skill-shortcut-ps, .skill-shortcut-oop,
+.skill-shortcut-oop, .skill-shortcut-sql,.skill-shortcut-fpga, .skill-shortcut-cms
+{
+    width: 78px;
+    height: 78px;
+    margin: 10px 13px 10px 3px;
+    padding: 0;
+    background-image: url(../../../content/homepage/image/icon/web_skill.png) !important;
+    background-size: 78px 546px !important;
+}
+
+.skill-shortcut-html	{ background-position: 0 0 !important; }
+.skill-shortcut-jquery	{ background-position: 0 -78px !important; }
+.skill-shortcut-ps	{ background-position: 0 -156px !important; }
+.skill-shortcut-oop	{ background-position: 0 -234px !important; }
+.skill-shortcut-sql	{ background-position: 0 -312px !important; }
+.skill-shortcut-fpga { background-position: 0 -390px !important; }
+.skill-shortcut-cms { background-position: 0 -468px !important; }
+/*=========icon Image Background End====================*/

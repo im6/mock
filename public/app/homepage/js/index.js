@@ -1,11 +1,11 @@
-﻿define([
-  'jquery',
-  'jquery-ui',
-  'TweenMax',
-  'superscrollorama',
-  'jQueryRotate',
-  //'async!https://maps.googleapis.com/maps/api/js?key=AIzaSyAN8vlxy4pU1oSAEhNYFslLMNBLLMNgChw',
-  'async!https://maps.googleapis.com/maps/api/js'
+define([
+    'jquery',
+    'jquery-ui',
+    'TweenMax',
+    'superscrollorama',
+    'jQueryRotate',
+    //'async!https://maps.googleapis.com/maps/api/js?key=AIzaSyAN8vlxy4pU1oSAEhNYFslLMNBLLMNgChw',
+    'async!https://maps.googleapis.com/maps/api/js'
 ], function ($) {
     var controller = {
         language: null,
@@ -65,14 +65,14 @@
         step: [],
         scrollHtInfo: null,
         stepArray: [
-		[3, 2, 3.5, 1.4], //firefox
-		[3, 1.9, 3.3, 1.8], //chrome
-		[3, 1.8, 3, 2.2], //mid
-		[3, 1.75, 2.8, 2.1], // ie			
-		[3, 2.4, 3.7, 2.1], //firefox-mini 692
-        [3, 2.4, 3.7, 1.9], //firefox-mini 692
-        [3, 2.5, 2.3, 1.7]//firefox-mini 692
-	],
+            [3, 2, 3.5, 1.4], //firefox
+            [3, 1.9, 3.3, 1.8], //chrome
+            [3, 1.8, 3, 2.2], //mid
+            [3, 1.75, 2.8, 2.1], // ie
+            [3, 2.4, 3.7, 2.1], //firefox-mini 692
+            [3, 2.4, 3.7, 1.9], //firefox-mini 692
+            [3, 2.5, 2.3, 1.7]//firefox-mini 692
+        ],
         likeNum: 128,
         allowLike: true,
         initial: function () {
@@ -110,7 +110,7 @@
             me.tmax();
 
             if (me.isMobileDevice) {
-                // Mobile Device Event   
+                // Mobile Device Event
 
                 $("#social-icon a").fadeTo(400, 1);
             } else {
@@ -157,9 +157,9 @@
 
             $('#menubar ul>li>a').click(function (event) {
                 if ($(this).text().trim() != '中文版' &&
-                $(this).text().trim() != 'English' &&
-                $(this).text().trim() != '网站' &&
-                $(this).text().trim() != 'Website') {
+                    $(this).text().trim() != 'English' &&
+                    $(this).text().trim() != '网站' &&
+                    $(this).text().trim() != 'Website') {
                     event.preventDefault();
                     var langList = me.timelineLoaded ? me.translation[me.language].menuarray : me.translation[me.language].menuarrayNoTL;
                     $('html, body').animate({ scrollTop: langList[$(this).text()] }, 1600, 'easeInOutExpo');
@@ -389,11 +389,11 @@
             };
 
             var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-            var image = ["/app/homepage/content/image/mapMarker/map_marker.png", "/app/homepage/content/image/mapMarker/map_marker2.png"];
+            var image = ["/content/homepage/image/mapMarker/map_marker.png", "/content/homepage/image/mapMarker/map_marker2.png"];
             var locations = [
-		  ['ZJ', 40.750785, -73.976541, zjguoStr],
-		  ['NYU', 40.729696, -73.996466, nyuStr]
-		];
+                ['ZJ', 40.750785, -73.976541, zjguoStr],
+                ['NYU', 40.729696, -73.996466, nyuStr]
+            ];
             var i;
             var markers = [];
             function toggleBounce() {
@@ -429,7 +429,7 @@
         initialMap: function () {
             if (typeof (google) === "undefined") {
                 var notice = "Your browser disabled script for some reason, GoogleMap will not work at all." +
-                "你的浏览器设置限制脚本文件运行,谷歌地图无法工作(可能是IE安全级别设置最高，或者大陆防火墙作怪)---ZJ Guo";
+                    "你的浏览器设置限制脚本文件运行,谷歌地图无法工作(可能是IE安全级别设置最高，或者大陆防火墙作怪)---ZJ Guo";
                 alert(notice);
                 $('#map-canvas').hide();
                 return;

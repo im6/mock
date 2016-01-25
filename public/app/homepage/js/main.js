@@ -7,8 +7,7 @@ require.config({
         "superscrollorama": "/assets/homeScroll/jquery.superscrollorama",
         "TweenMax": "/assets/homeScroll/TweenMax.min",
         "async": "/assets/requirejs/async",
-        "smoothScroll": "/assets/homeScroll/smoothscroll",
-        "index": "/app/homepage/js/index_amd"
+        "smoothScroll": "/assets/homeScroll/smoothscroll"
     },
     shim: {
         'jquery-ui': { deps: ['jquery']},
@@ -17,7 +16,7 @@ require.config({
     }
 });
 
-require(['index'],function (controller) {
+require(['/build/homepage/js/index.js'],function (controller) {
     controller.initial();
 });
 

@@ -39,7 +39,6 @@ app.use('/home', require('./modules/homepage/routes/route'));
 var mongo = require('./utility/mongo/connect');
 mongo.connect();
 
-
 //---------------    error handling below start:     ----------------
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -54,7 +53,7 @@ if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
       res.status(err.status || 500);
       console.error(err.message);
-      res.render('dash/error', {
+      res.render('error', {
       message: err.message,
       error: err
     });
@@ -66,7 +65,7 @@ if (app.get('env') === 'development') {
 app.use(function(err, req, res, next) {
     console.error(err.message);
     res.status(err.status || 500);
-    res.render('dash/error', {
+    res.render('error', {
       message: err.message,
       error: {}
     });

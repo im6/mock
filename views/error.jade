@@ -1,2 +1,39 @@
-h3 Error
-h5 www.guozj.com
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Metronic | 404 Page Option 2
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(content='width=device-width, initial-scale=1', name='viewport')
+        meta(content='', name='description')
+        meta(content='', name='author')
+
+        link(href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all', rel='stylesheet', type='text/css')
+        link(href='/assets/metronic/global/plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+        link(href='/assets/metronic/global/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+        link(href='/assets/metronic/global/css/components.min.css', rel='stylesheet', type='text/css')
+        link(href='/assets/metronic/pages/css/error.min.css', rel='stylesheet', type='text/css')
+        link(rel='shortcut icon', href='content/error/favicon.ico')
+
+    body.page-404-full-page
+        .row
+            .col-md-12.page-404
+                .number.font-red  404
+                .details
+                    h3 Oops! You're lost.
+                    p
+                        | We can not find the page you're looking for.
+                        br
+                        a(href='index.html')  Return home
+                        |  or try the search bar below.
+                    form(action='#')
+                        .input-group.input-medium
+                            input.form-control(type='text', placeholder='keyword...')
+                            span.input-group-btn
+                                button.btn.red(type='submit')
+                                    i.fa.fa-search
+
+        script(src='/assets/metronic/global/plugins/jquery.min.js', type='text/javascript')
+        script(src='/assets/metronic/global/plugins/bootstrap/js/bootstrap.min.js', type='text/javascript')
+        script(src='/assets/metronic/global/scripts/app.min.js', type='text/javascript')
+
