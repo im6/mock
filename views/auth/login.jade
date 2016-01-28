@@ -2,7 +2,8 @@ doctype html
 html
     head
         meta(charset='UTF-8')
-        title Calm breeze login screen
+        title Welcome to login
+        link(rel='shortcut icon', href='/content/dash/icon/favicon.ico')
         link(href='/assets/metronic/global/plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
         link(rel='stylesheet', href='/app/auth/css/style.css')
     body
@@ -32,4 +33,4 @@ html
                     li
                     - n++
 
-        script(data-main='/app/auth/js/main', src='/assets/requirejs/require.js')
+        script(data-main='/build/auth/js/main', src='/assets/requirejs/require.js')

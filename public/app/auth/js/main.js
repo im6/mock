@@ -14,6 +14,7 @@ require(['jquery'],function ($) {
             $('.socialIcon').fadeOut(500);
             $('.wrapper').addClass('form-success');
         });
+
     });
 });
 
