@@ -1,3 +1,4 @@
+"use strict";
 var express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
@@ -31,9 +32,17 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.locals.pretty = true;
 
-app.use('/', require('./modules/root/routes/route'));
-app.use('/dash', require('./modules/root/routes/dash'));
-app.use('/home', require('./modules/homepage/routes/route'));
+var routeMap = {
+    "/": "./modules/root/routes/route",
+    "/dash": "./modules/root/routes/dash",
+    "/home": "./modules/homepage/routes/route",
+    "/auth": "./modules/auth/routes/route"
+};
+for(var oneUrl in routeMap){
+    if(routeMap.hasOwnProperty(oneUrl)){
+        app.use(oneUrl, require(routeMap[oneUrl]));
+    }
+}
 
 //--------   mongodb connections    ---------
 var mongo = require('./utility/mongo/connect');

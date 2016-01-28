@@ -1,0 +1,35 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        title Calm breeze login screen
+        link(href='/assets/metronic/global/plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+        link(rel='stylesheet', href='/app/auth/css/style.css')
+    body
+        .wrapper
+            .container
+                h1 Welcome to ZJ & XJ
+                form.form(action="/auth/signin" method="POST")
+                    input(name='username', placeholder='Username')
+                    input(name='password', placeholder='Password')
+                    button#login-button(type='submit') Sign In
+
+                div.socialIcon
+                    h4 or login with
+                    ul
+                        li
+                            i.fa.fa-weixin.fa-2x
+                        li
+                            i.fa.fa-weibo.fa-2x
+                        li
+                            i.fa.fa-facebook-official.fa-2x
+                        li
+                            i.fa.fa-google-plus.fa-2x
+
+            - var n = 0
+            ul.bg-bubbles
+                while n < 30
+                    li
+                    - n++
+
+        script(data-main='/app/auth/js/main', src='/assets/requirejs/require.js')
