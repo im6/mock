@@ -1,12 +1,28 @@
+var passport = require("../config/passport");
 
 module.exports = {
-    signIn: function(req, res, next){
-        console.log('username:' + req.body.username + ";  password: " + req.body.password);
-        res.json('good');
+    passportLocal: passport.get().authenticate('local', {
+        failureRedirect: '/auth'
+    }),
+
+    signInSuccess: function(req, res, next){
+        res.redirect("/dash");
+    },
+
+    main: function(req, res, next) {
+        if(typeof req.user != "undefined"){
+            res.redirect("/dash");
+        }else{
+            res.render("auth/login");
+        }
 
     },
-    main: function(req, res, next) {
-        console.log('coming to login server');
-        res.render('auth/login');
+
+    checkAuth: function(req, res, next){
+        if(typeof req.user != "undefined"){
+            next();
+        }else{
+            res.redirect("/auth");
+        }
     }
 };

@@ -4,9 +4,7 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
-    bodyParser = require('body-parser'),
-    passport = require('passport'),
-    localStrategy = require('passport-local');
+    bodyParser = require('body-parser');
 
 
 var app = express();
@@ -14,6 +12,7 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.locals.pretty = true;
 
 
 // uncomment after placing your favicon in /public
@@ -28,9 +27,13 @@ app.use(require("express-session")({
     resave: true,
     saveUninitialized: true
 }));
+
+//===========   passport setup   =============
+var passport = require('./modules/auth/config/passport').initial();
 app.use(passport.initialize());
 app.use(passport.session());
-app.locals.pretty = true;
+//===========   passport setup END  =============
+
 
 var routeMap = {
     "/": "./modules/root/routes/route",
