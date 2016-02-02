@@ -1,13 +1,19 @@
 require.config({
     waitSeconds: 0,
     paths: {
-        "jquery": ["//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min", "/assets/metronic/global/plugins/jquery.min"],
-        "jquery-ui": ["//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min", "/assets/metronic/global/plugins/jquery-ui/jquery-ui.min"],
-        "jQueryRotate": "/assets/homeScroll/jQueryRotate",
-        "superscrollorama": "/assets/homeScroll/jquery.superscrollorama",
-        "TweenMax": "/assets/homeScroll/TweenMax.min",
-        "async": "/assets/requirejs/async",
-        "smoothScroll": "/assets/homeScroll/smoothscroll"
+        "jquery": [
+            "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
+            "/assets/home/jquery.min"
+        ],
+        "jquery-ui": [
+            "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min",
+            "/assets/home/jquery-ui.min"
+        ],
+        "jQueryRotate": "/assets/home/jQueryRotate",
+        "superscrollorama": "/assets/home/jquery.superscrollorama",
+        "TweenMax": "/assets/home/TweenMax.min",
+        "async": "/assets/home/requirejs/async",
+        "smoothScroll": "/assets/home/smoothscroll"
     },
     shim: {
         'jquery-ui': { deps: ['jquery']},
@@ -16,7 +22,6 @@ require.config({
     }
 });
 
-require(['/build/homepage/js/index.js'],function (controller) {
+require(['/build/homepage/js/index.js','smoothScroll'],function (controller) {
     controller.initial();
 });
-

@@ -37,3 +37,6 @@ node_modules
 
 # grunt built files
 public/build/*
+
+$ temperary ignore metronic in www
+www/assets/metronic
