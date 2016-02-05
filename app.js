@@ -37,10 +37,11 @@ app.use(passport.session());
 
 var routeMap = {
     "/": "./modules/root/routes/route",
-    "/dash": "./modules/root/routes/dash",
+    "/dash": "./modules/dashRoot/routes/route",
     "/home": "./modules/homepage/routes/route",
     "/auth": "./modules/auth/routes/route"
 };
+
 for(var oneUrl in routeMap){
     if(routeMap.hasOwnProperty(oneUrl)){
         app.use(oneUrl, require(routeMap[oneUrl]));

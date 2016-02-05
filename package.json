@@ -13,6 +13,7 @@
     "express": "~4.13.1",
     "express-session": "^1.12.1",
     "grunt": "^0.4.5",
+    "immutable": "^3.7.6",
     "jade": "~1.11.0",
     "jquery": "^2.2.0",
     "lodash": "^3.10.1",
