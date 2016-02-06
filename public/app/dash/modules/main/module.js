@@ -4,9 +4,11 @@ angular.module("app", [
     "ui.bootstrap",
     "oc.lazyLoad",
     "ngSanitize",
-    //"ngAnimate"
+    "ngResource",
+    "ngAnimate"
 ])
-    .constant('igps_appModulesPath', '/app/dash/modules/')
+    .constant('appModulesPath', '/app/dash/modules/')
+
     .config(['$ocLazyLoadProvider', function($ocLazyLoadProvider) {
         $ocLazyLoadProvider.config({
             debug: true
@@ -23,7 +25,10 @@ angular.module("app", [
             .state('dashboard', {
                 url: "/dashboard",
                 templateUrl: "/app/dash/modules/dashboard/views/main.html",
-                data: {pageTitle: 'Admin Dashboard Template'},
+                data: {
+                    pageTitle: 'Admin Dashboard Template',
+                    pageTitleIcon: 'fa fa-dashboard'
+                },
                 controller: "dsb_DashboardController",
                 resolve: {
                     deps: ['mainService','$q', function(mainService, $q) {
@@ -35,7 +40,7 @@ angular.module("app", [
                             '/assets/metronic/global/plugins/morris/raphael-min.js',
                         ];
                         var ngFileList = [
-                            'dsb_DashboardController',
+                            'dsb_DashboardController'
                         ];
                         setTimeout(function(){
                             mainService.loadModuleDependency('dashboard', ngFileList, fileList, deferred);
@@ -44,6 +49,31 @@ angular.module("app", [
                     }]
                 }
             })
+            .state("bookmark",{
+                url: "/bookmark",
+                templateUrl: "/app/dash/modules/bookmark/views/main.html",
+                data: {
+                    pageTitle: 'Bookmark',
+                    pageTitleIcon: 'fa fa-book'
+                },
+                controller: "bm_mainController",
+                resolve: {
+                    deps: ['mainService','$q', function(mainService, $q) {
+                        var deferred = $q.defer();
+                        var fileList = [];
+                        var ngFileList = [
+                            'bm_rscService',
+                            'bm_mainController'
+                        ];
+                        setTimeout(function(){
+                            mainService.loadModuleDependency('bookmark', ngFileList, fileList, deferred);
+                        });
+                        return deferred.promise;
+                    }]
+                }
+            })
+
+
     }])
 
     .run(["$rootScope", "settings", "$state", function($rootScope, settings, $state) {

@@ -21,10 +21,17 @@ angular.module('app')
     }])
 
     /* Setup Layout Part - Sidebar */
-    .controller('SidebarController', ['$scope', function($scope) {
-        $scope.$on('$includeContentLoaded', function() {
-            Layout.initSidebar(); // init sidebar
-        });
+    .controller('SidebarController', [
+        '$scope',
+        'dashRootService',
+        function($scope,dashRootService) {
+            var modules = dashRootService.dashModules().query({},function(res){
+                //console.log(res);
+            });
+
+            $scope.$on('$includeContentLoaded', function() {
+                Layout.initSidebar(); // init sidebar
+            });
     }])
 
     /* Setup Layout Part - Sidebar */
@@ -55,4 +62,4 @@ angular.module('app')
         $scope.$on('$includeContentLoaded', function() {
             Layout.initFooter(); // init footer
         });
-    }])
+    }]);

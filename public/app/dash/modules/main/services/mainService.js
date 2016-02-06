@@ -5,8 +5,8 @@ angular.module('app')
         '$interval',
         '$ocLazyLoad',
         '$rootScope',
-        'igps_appModulesPath',
-        function ($q, $interval, $ocLazyLoad, $rootScope, igps_appModulesPath) {
+        'appModulesPath',
+        function ($q, $interval, $ocLazyLoad, $rootScope, appModulesPath) {
             var privateFn = {
                 checkModuleExist: function(moduleName){
                     return $ocLazyLoad.getModules().indexOf('app.' + moduleName) > -1;
@@ -33,7 +33,7 @@ angular.module('app')
                     var result = [];
                     angular.forEach(nglist, function (value, key) {
                         var typename = '/' + me.getFileType(value) + '/';
-                        var fileUrl = igps_appModulesPath + moduleid + typename + value + '.js';
+                        var fileUrl = appModulesPath + moduleid + typename + value + '.js';
                         result.push(fileUrl);
                     });
 
@@ -62,7 +62,7 @@ angular.module('app')
                             defered.resolve();
                         });
                     }else{
-                        var moduleUrl = igps_appModulesPath + moduleName + '/module.js';
+                        var moduleUrl = appModulesPath + moduleName + '/module.js';
                         $ocLazyLoad.load({
                             name: 'App',
                             insertBefore: '#ng_load_plugins_before',

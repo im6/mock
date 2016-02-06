@@ -2,7 +2,7 @@ var express = require('express'),
     router = express.Router(),
     globalConfig = require("../../../config/global.js"),
     authCtrl = require("../../auth/controllers/authController.js"),
-    dashRootCtrl = require("../controllers/dashRootController.js");
+    bookmarkCtrl = require("../controllers/bookmarkController.js");
 
 
 
@@ -10,7 +10,7 @@ var express = require('express'),
 if(globalConfig.requireAuth){
     router.all("*", authCtrl.checkAuth);
 }
-router.get('/', dashRootCtrl.main);
-router.get("/modules", dashRootCtrl.getDashModules);
+router.get('/', bookmarkCtrl.get);
+
 
 module.exports = router;

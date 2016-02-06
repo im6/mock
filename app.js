@@ -38,6 +38,7 @@ app.use(passport.session());
 var routeMap = {
     "/": "./modules/root/routes/route",
     "/dash": "./modules/dashRoot/routes/route",
+    "/dash/bookmark": "./modules/bookmark/routes/route",
     "/home": "./modules/homepage/routes/route",
     "/auth": "./modules/auth/routes/route"
 };

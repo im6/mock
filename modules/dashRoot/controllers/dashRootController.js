@@ -1,4 +1,5 @@
 var mongoose = require("mongoose"),
+    _ = require("lodash"),
     DashModule = require("../models/DashModule.js");
 
 
@@ -23,7 +24,9 @@ module.exports = {
             } else{
                 console.log(data);
                 var modules = ["a1", "a2", "a3"];
-                res.json(data);
+                var data2 = _.map(data, "name");
+
+                res.json(data2);
             }
         });
 
