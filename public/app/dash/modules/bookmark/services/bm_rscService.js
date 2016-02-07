@@ -11,6 +11,12 @@ angular.module('app')
             var output = {
                 bookmark: function(){
                     return $resource("/dash/bookmark");
+                },
+                bookmarkId: function(){
+                    return $resource("/dash/bookmark/:id");
+                },
+                bookmarkId2: function(){
+                    return $resource("/dash/bookmark/:id1/:id2");
                 }
             };
 

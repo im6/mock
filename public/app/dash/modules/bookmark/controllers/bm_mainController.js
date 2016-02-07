@@ -15,23 +15,27 @@ angular.module('app.bookmark')
             $rootScope.settings.layout.pageBodySolid = false;
             $rootScope.settings.layout.pageSidebarClosed = false;
 
-
             _.merge($scope,{
                 viewModel:{
                     books: null
                 },
-                test: "zijian GUO"
+                delete: function(id){
+                    //bm_rscService.bookmarkId().delete({
+                    //    id: id
+                    //},function(res){
+                    //    debugger;
+                    //});
+                    bm_rscService.bookmarkId2().delete({
+                        id1: id,
+                        id2: id*2
+                    },function(res){
+
+                    });
+                }
             });
 
             bm_rscService.bookmark().query(function(res){
-                $scope.viewModel.books = _.map(res, function(value){
-                    return{
-                        name: value.name,
-                        id: value.id,
-                        url:value.url,
-                        created: value.created
-                    };
-                });
+                $scope.viewModel.books = res;
             });
 
         }]

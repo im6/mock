@@ -31,15 +31,17 @@
                         </a>
                         <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
                             <label>
-                                <input type="checkbox" /> Finance</label>
+                                <input type="checkbox" />
+                                Id
+                            </label>
                             <label>
-                                <input type="checkbox" checked="" /> Membership</label>
+                                <input type="checkbox" />
+                                Name
+                            </label>
                             <label>
-                                <input type="checkbox" /> Customer Support</label>
-                            <label>
-                                <input type="checkbox" checked="" /> HR</label>
-                            <label>
-                                <input type="checkbox" /> System</label>
+                                <input type="checkbox" />
+                                Date
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -49,6 +51,7 @@
                     <ul class="feeds">
 
                         <li ng-repeat="oneBook in viewModel.books">
+
                             <div class="col1">
                                 <div class="cont">
                                     <div class="cont-col1">
@@ -57,22 +60,26 @@
                                         </div>
                                     </div>
                                     <div class="cont-col2">
-                                        <div class="desc"> {{oneBook.name}}
+                                        <div class="desc">
+                                            {{oneBook.name}}
+                                            <a href="{{oneBook.url}}" target="_blank">
                                                 <span class="label label-sm label-warning ">
-                                                    {{oneBook.url}}
                                                     <i class="fa fa-share"></i>
                                                 </span>
+                                            </a>
+                                            <a class="label label-sm label-danger" ng-click="delete(oneBook.id)">
+                                                <i class="fa fa-times"></i>
+                                            </a>
                                         </div>
 
-
                                     </div>
-                                    {{oneBook.created}}
+
                                 </div>
                             </div>
                             <div class="col2">
-                                <div class="date">
-                                    Just now
-                                </div>
+                                <span class="date">
+                                    {{oneBook.created.substring(5,10)}}
+                                </span>
                             </div>
                         </li>
 

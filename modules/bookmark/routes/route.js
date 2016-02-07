@@ -5,12 +5,19 @@ var express = require('express'),
     bookmarkCtrl = require("../controllers/bookmarkController.js");
 
 
-
 /* GET home page. */
 if(globalConfig.requireAuth){
     router.all("*", authCtrl.checkAuth);
 }
+
+/*
+* github about regexp in the
+* http://forbeslindesay.github.io/express-route-tester/
+* */
+
 router.get('/', bookmarkCtrl.get);
+router.delete("/:id", bookmarkCtrl.delete);
+router.delete("/:id1/:id2", bookmarkCtrl.delete2);
 
 
 module.exports = router;

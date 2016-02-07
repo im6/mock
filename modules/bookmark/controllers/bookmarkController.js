@@ -9,8 +9,16 @@ module.exports = {
             if(err){
                 console.error(err);
             }else{
+                var result = _.map(data, function(value){
+                    return{
+                        name: value.name,
+                        id: value.id,
+                        url:value.url,
+                        created: value.created
+                    };
+                });
 
-                res.json(data);
+                res.json(result);
             }
         });
 
@@ -39,10 +47,17 @@ module.exports = {
 
 
     },
-    update: function(){
+    update: function(req, res, next){
+        debugger;
+        console.log("udpate the records of id = " + req.params.id);
 
     },
-    delete: function(){
-
+    delete: function(req, res, next){
+        console.log("coming to delete id = " + req.params.id);
+        res.end();
+    },
+    delete2: function(req, res, next){
+        console.log("coming to delete id1 = " + req.params.id1 + "; id2= " + req.params.id2);
+        res.end();
     }
 };
