@@ -59,5 +59,12 @@ module.exports = {
     delete2: function(req, res, next){
         console.log("coming to delete id1 = " + req.params.id1 + "; id2= " + req.params.id2);
         res.end();
+    },
+    post2: function(req, res, next){
+        var params = req.params;
+        var body = req.body;
+        var query = req.query;
+        debugger;
+        res.end();
     }
 };

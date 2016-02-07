@@ -18,6 +18,8 @@ if(globalConfig.requireAuth){
 router.get('/', bookmarkCtrl.get);
 router.delete("/:id", bookmarkCtrl.delete);
 router.delete("/:id1/:id2", bookmarkCtrl.delete2);
+router.post("/:id1/:id2", bookmarkCtrl.post2);
+router.post("/:id", bookmarkCtrl.update);
 
 
 module.exports = router;

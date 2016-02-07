@@ -20,16 +20,22 @@ angular.module('app.bookmark')
                     books: null
                 },
                 delete: function(id){
-                    //bm_rscService.bookmarkId().delete({
-                    //    id: id
-                    //},function(res){
-                    //    debugger;
-                    //});
-                    bm_rscService.bookmarkId2().delete({
-                        id1: id,
-                        id2: id*2
+                    bm_rscService.bookmarkId2().updateBook({
+                        param1: "77771",
+                        param2: "77772",
+                        query1: "this is query",
+                        body:{
+                            test: "body1"
+                        }
                     },function(res){
-
+                        alert(res);
+                    });
+                },
+                update: function(id){
+                    bm_rscService.bookmarkId().delete({
+                        id: id
+                    },function(res){
+                        debugger;
                     });
                 }
             });
