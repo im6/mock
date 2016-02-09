@@ -1,5 +1,5 @@
 "use strict";
-angular.module('app')
+angular.module('app.bookmark')
     .factory('bm_rscService', [
         '$resource',
         function ($resource) {

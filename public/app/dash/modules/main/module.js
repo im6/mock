@@ -29,7 +29,7 @@ angular.module("app", [
                     pageTitle: 'Admin Dashboard Template',
                     pageTitleIcon: 'fa fa-dashboard'
                 },
-                controller: "dsb_DashboardController",
+                controller: "dsb_mainController",
                 resolve: {
                     deps: ['mainService','$q', function(mainService, $q) {
                         var deferred = $q.defer();
@@ -40,7 +40,7 @@ angular.module("app", [
                             '/assets/metronic/global/plugins/morris/raphael-min.js',
                         ];
                         var ngFileList = [
-                            'dsb_DashboardController'
+                            'dsb_mainController'
                         ];
                         setTimeout(function(){
                             mainService.loadModuleDependency('dashboard', ngFileList, fileList, deferred);
@@ -72,6 +72,29 @@ angular.module("app", [
                     }]
                 }
             })
+            .state("datetree",{
+                url: "/datetree",
+                templateUrl: "/app/dash/modules/datetree/views/main.html",
+                data: {
+                    pageTitle: 'DateTree',
+                    pageTitleIcon: 'fa fa-tree'
+                },
+                controller: "dtr_mainController",
+                resolve: {
+                    deps: ['mainService','$q', function(mainService, $q) {
+                        var deferred = $q.defer();
+                        var fileList = [];
+                        var ngFileList = [
+                            'dtr_rscService',
+                            'dtr_mainController'
+                        ];
+                        setTimeout(function(){
+                            mainService.loadModuleDependency('datetree', ngFileList, fileList, deferred);
+                        });
+                        return deferred.promise;
+                    }]
+                }
+            });
 
 
     }])

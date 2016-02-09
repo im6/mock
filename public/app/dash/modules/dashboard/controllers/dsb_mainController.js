@@ -1,6 +1,6 @@
 "use strict";
 angular.module('app.dashboard')
-    .controller('dsb_DashboardController',[
+    .controller('dsb_mainController',[
         "$rootScope",
         "$scope",
         "$http",
@@ -15,5 +15,10 @@ angular.module('app.dashboard')
             $rootScope.settings.layout.pageContentWhite = true;
             $rootScope.settings.layout.pageBodySolid = false;
             $rootScope.settings.layout.pageSidebarClosed = false;
+
+            _.merge($scope, {
+
+            });
+
         }]
-    );
+);
