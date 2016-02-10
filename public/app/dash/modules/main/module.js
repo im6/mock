@@ -86,7 +86,8 @@ angular.module("app", [
                         var fileList = [];
                         var ngFileList = [
                             'dtr_rscService',
-                            'dtr_mainController'
+                            'dtr_mainController',
+                            'dtr_uploadController'
                         ];
                         setTimeout(function(){
                             mainService.loadModuleDependency('datetree', ngFileList, fileList, deferred);

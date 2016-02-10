@@ -1,2 +1,4 @@
 "use strict";
-angular.module('app.datetree', []);
+angular.module('app.datetree', [
+    "angularFileUpload"
+]);
