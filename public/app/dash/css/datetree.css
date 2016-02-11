@@ -1,0 +1,43 @@
+.dtr_itemtop{
+    height: 15px;
+}
+.dtr_item{
+    height: 98%;
+    background-color: #f2f2f2;
+    margin: 8px;
+    transition: box-shadow 0.5s;
+    /*border: 1px solid black;*/
+    border-radius: 8px !important;
+    box-shadow: 0 1px 2px #b3b3b3;
+    padding: 6px;
+}
+.dtr_item img{
+    margin: 5px auto;
+    width: 100%;
+}
+
+.dtr_bigshadow{
+    box-shadow: 0 6px 6px #b3b3b3;
+}
+
+.dtr_itemwrap{
+    margin: 10px 0;
+}
+
+.dtr_itemwrap.ng-enter{
+     -webkit-animation: bounceIn 1s;
+     -moz-animation: bounceIn 1s;
+     -ms-animation: bounceIn 1s;
+     animation: bounceIn 1s;
+ }
+
+.dtr_itemwrap.ng-leave{
+    -webkit-animation: bounceOutDown 1s;
+    -moz-animation: bounceOutDown 1s;
+    -ms-animation: bounceOutDown 1s;
+    animation: bounceOutDown 1s;
+}
+
+.dtr_itemContent{
+    height: 35px;
+}

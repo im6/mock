@@ -17,8 +17,32 @@ angular.module('app.datetree')
             $rootScope.settings.layout.pageSidebarClosed = false;
 
             _.merge($scope, {
+                viewModel:{
+                    list:[]
+                },
+                add: function(){
+                    var newid = $scope.viewModel.list.length;
+                    $scope.viewModel.list.push({
+                        id:newid
+                    })
+                },
+                delete: function(id){
+                    if(typeof id == "undefined"){
+                        id = $scope.viewModel.list.length - 1;
+                    }
+                    $scope.viewModel.list = _.remove($scope.viewModel.list, function(n){
+                        return n.id != id;
+                    });
 
+                }
             });
+
+            _.times(7, function(key){
+                $scope.viewModel.list.push({
+                    id : key
+                })
+            })
+
 
 
         }]

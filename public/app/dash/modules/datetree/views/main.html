@@ -1,9 +1,62 @@
-<div ng-controller="dtr_uploadController">
-    <input type="file" nv-file-select uploader2="uploader1"/><br/>
-    <ul>
-        <li ng-repeat="item in uploader.queue">
-            Name: <span ng-bind="item.file.name"></span><br/>
-            <button ng-click="item.upload()">upload</button>
-        </li>
-    </ul>
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <!-- BEGIN PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-share font-red-sunglo hide"></i>
+                    <span class="caption-subject font-red-sunglo bold uppercase">Revenue</span>
+                    <span class="caption-helper">monthly stats...</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group">
+                        <a href="" class="btn dark btn-outline btn-circle btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Filter Range
+                            <span class="fa fa-angle-down"> </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+
+                <button class="btn btn-sm btn-success" ng-click="add()">
+                    <i class="fa fa-plus"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" ng-click="delete()">
+                    <i class="fa fa-minus"></i>
+                </button>
+
+                <div class="row">
+
+                    <div class="col-lg-3 col-md-3 col-sm-6 dtr_itemwrap" ng-repeat-start="one in viewModel.list">
+                        <div class="dtr_item"
+                             ng-class="{dtr_bigshadow: hover}"
+                             ng-mouseenter="hover=true"
+                             ng-mouseleave="hover=false">
+                            <div class="dtr_itemtop">
+                                <i class="fa fa-minus font-red-mint"
+                                    style="float: right"
+                                    ng-show="hover"
+                                    ng-click="delete(one.id)"></i>
+                            </div>
+
+                            <img src="https://lh3.googleusercontent.com/gD0sQmzHmaG9m7excJhB3T0cyaqAjrhxU2elCuQ92IKBwY2SpfiSeS6Y3cQJasN83g=w300"/>
+                            <div class="dtr_itemContent">
+                                auther: {{one.id}}
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="clearfix" ng-if="$index %4 == 3"></div>
+                    <div ng-repeat-end></div>
+
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <!-- END PORTLET-->
+    </div>
 </div>

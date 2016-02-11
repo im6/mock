@@ -83,7 +83,9 @@ angular.module("app", [
                 resolve: {
                     deps: ['mainService','$q', function(mainService, $q) {
                         var deferred = $q.defer();
-                        var fileList = [];
+                        var fileList = [
+                            "app/dash/css/datetree.css"
+                        ];
                         var ngFileList = [
                             'dtr_rscService',
                             'dtr_mainController',
