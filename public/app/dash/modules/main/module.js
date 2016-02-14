@@ -72,6 +72,56 @@ angular.module("app", [
                     }]
                 }
             })
+            .state("profile",{
+                url: "/profile",
+                templateUrl: "/app/dash/modules/profile/views/main.html",
+                data: {
+                    pageTitle: 'User Profile',
+                    pageTitleIcon: 'icon-user'
+                },
+                controller: "prf_mainController",
+                resolve: {
+                    deps: ['mainService','$q', function(mainService, $q) {
+                        var deferred = $q.defer();
+                        var fileList = [
+                            //"app/dash/css/profile.css"
+                        ];
+                        var ngFileList = [
+                            'prf_rscService',
+                            'prf_mainController'
+                        ];
+                        setTimeout(function(){
+                            mainService.loadModuleDependency('profile', ngFileList, fileList, deferred);
+                        });
+                        return deferred.promise;
+                    }]
+                }
+            })
+            .state("friend",{
+                url: "/friend",
+                templateUrl: "/app/dash/modules/friend/views/main.html",
+                data: {
+                    pageTitle: 'Friends',
+                    pageTitleIcon: 'icon-users'
+                },
+                controller: "frd_mainController",
+                resolve: {
+                    deps: ['mainService','$q', function(mainService, $q) {
+                        var deferred = $q.defer();
+                        var fileList = [
+                            //"app/dash/css/profile.css"
+                        ];
+                        var ngFileList = [
+                            'frd_rscService',
+                            'frd_mainController'
+                        ];
+                        setTimeout(function(){
+                            mainService.loadModuleDependency('friend', ngFileList, fileList, deferred);
+                        });
+                        return deferred.promise;
+                    }]
+                }
+            })
             .state("datetree",{
                 url: "/datetree",
                 templateUrl: "/app/dash/modules/datetree/views/main.html",
@@ -102,7 +152,12 @@ angular.module("app", [
 
     }])
 
-    .run(["$rootScope", "settings", "$state", function($rootScope, settings, $state) {
+    .run([
+        "$rootScope",
+        "settings",
+        "$state",
+        "socketService",
+        function($rootScope, settings, $state, socketService) {
         $rootScope.$state = $state; // state to be accessed from view
         $rootScope.$settings = settings; // state to be accessed from view
     }]);
