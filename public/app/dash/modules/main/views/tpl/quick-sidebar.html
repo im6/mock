@@ -39,7 +39,9 @@
             </li>
         </ul>
         <div class="tab-content">
-            <div class="tab-pane active page-quick-sidebar-chat" id="quick_sidebar_tab_1">
+            <div class="tab-pane active page-quick-sidebar-chat"
+                 id="quick_sidebar_tab_1"
+                 ng-class="{'page-quick-sidebar-content-item-shown': viewModel.showDialog}">
                 <div class="page-quick-sidebar-chat-users" data-rail-color="#ddd" data-wrapper-class="page-quick-sidebar-list">
 
                     <ul class="media-list list-items">
@@ -64,10 +66,8 @@
 
                     </ul>
 
-                    <button ng-click="test()">Update User List</button>
-
                 </div>
-                <div class="page-quick-sidebar-item" ng-class="{'page-quick-sidebar-content-item-shown': viewModel.showDialog}">
+                <div class="page-quick-sidebar-item">
                     <div class="page-quick-sidebar-chat-user">
                         <div class="page-quick-sidebar-nav">
                             <a href="javascript:;" class="page-quick-sidebar-back-to-list" ng-click="toggleDialog(false)">

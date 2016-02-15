@@ -61,7 +61,7 @@ angular.module('app')
 
             $scope.$on('$includeContentLoaded', function() {
                 setTimeout(function(){
-                    QuickSidebar.init(); // init quick sidebar
+                    //QuickSidebar.init(); // init quick sidebar
                 }, 2000);
             });
             socket.on("connect", function(data){

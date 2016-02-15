@@ -156,7 +156,7 @@ var QuickSidebar = function () {
 
         init: function () {
             //layout handlers
-            handleQuickSidebarToggler(); // handles quick sidebar's toggler
+            handleQuickSidebarToggler(); // handles quick sidebar's toggler --replaced
             handleQuickSidebarChat(); // handles quick sidebar's chats
             handleQuickSidebarAlerts(); // handles quick sidebar's alerts
             handleQuickSidebarSettings(); // handles quick sidebar's setting

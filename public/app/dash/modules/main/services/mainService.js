@@ -90,7 +90,9 @@ angular.module('app')
                 pageSidebarClosed: false, // sidebar menu state
                 pageContentWhite: true, // set page content layout
                 pageBodySolid: false, // solid body color state
-                pageAutoScrollOnLoad: 1000 // auto scroll to top on page load
+                pageAutoScrollOnLoad: 1000, // auto scroll to top on page load,
+                //====== zJ added
+                pageQuickSidebarOpen: true
             },
             assetsPath: '/assets/metronic',
             globalPath: '/assets/metronic/global',
