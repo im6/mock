@@ -13,7 +13,6 @@ block content
             .page-content
                 .page-head(data-ng-include="'/app/dash/modules/main/views/tpl/page-head.html'", data-ng-controller='PageHeadController')
                 .fade-in-up(ui-view='')
-        a.page-quick-sidebar-toggler(href='javascript:;')
-            i.icon-login
+
         .page-quick-sidebar-wrapper(data-ng-include="'/app/dash/modules/main/views/tpl/quick-sidebar.html'", data-ng-controller='QuickSidebarController')
     .page-footer(data-ng-include="'/app/dash/modules/main/views/tpl/footer.html'", data-ng-controller='FooterController')

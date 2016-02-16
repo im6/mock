@@ -7,15 +7,18 @@ angular.module('app')
         });
     }])
 
-    .controller('HeaderController', ['$scope', function($scope) {
+    .controller('HeaderController', [
+        '$scope',
+        '$rootScope',
+        function($scope,$rootScope) {
         $scope.$on('$includeContentLoaded', function() {
             Layout.initHeader(); // init header
         });
 
         _.merge($scope,{
-            toggleQuickSideBar: function(bl){
-
-            }
+            toggleSocket: function (bl) {
+                $rootScope.settings.layout.pageQuickSidebarOpen = bl;
+            },
         })
     }])
 
@@ -40,52 +43,7 @@ angular.module('app')
     }])
 
     /* Setup Layout Part - Quick Sidebar */
-    .controller('QuickSidebarController', [
-        '$scope',
-        "socketService",
-        function($scope,socket) {
 
-            _.merge($scope, {
-                viewModel:{
-                    userList:[],
-                    showDialog: false,
-                },
-                toggleDialog: function(bl){
-                    var me = $scope;
-                    me.viewModel.showDialog = bl;
-                },
-                test: function(){
-                    socket.emit('user/get');
-                }
-            });
-
-            $scope.$on('$includeContentLoaded', function() {
-                setTimeout(function(){
-                    //QuickSidebar.init(); // init quick sidebar
-                }, 2000);
-            });
-            socket.on("connect", function(data){
-
-                socket.on("msg/new", function(data){
-                    debugger;
-                });
-
-
-                socket.on("user/new", function(data){
-                    $scope.viewModel.userList.push(data);
-                });
-
-                socket.on("user/all", function(res){
-                    $scope.viewModel.userList = res.data;
-
-                });
-
-                socket.emit('user/add', "testuser");
-
-            });
-
-
-    }])
 
     /* Setup Layout Part - Theme Panel */
     .controller('ThemePanelController', ['$scope', function($scope) {
