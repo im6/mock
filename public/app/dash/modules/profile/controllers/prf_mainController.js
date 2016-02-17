@@ -15,6 +15,14 @@ angular.module('app.profile')
             $rootScope.settings.layout.pageSidebarClosed = false;
 
             _.merge($scope, {
+                user:{
+                    id: 23,
+                    name: "xiaoji",
+                    email: "xiaoji@gmail.com",
+                    gender: false,
+                    availability: 0,
+                    dob: null
+                }
 
             });
 

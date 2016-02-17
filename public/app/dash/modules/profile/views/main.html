@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
-        <!-- BEGIN SAMPLE FORM PORTLET-->
+
         <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption">
@@ -26,31 +26,12 @@
                         <div class="form-group">
                             <label class="col-md-3 control-label">Name</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" placeholder="Enter text">
+                                <input type="text" class="form-control" placeholder="Enter text" ng-model="user.name">
                                 <span class="help-block"> Shown public </span>
                             </div>
                         </div>
-                        <!--<div class="form-group">
-                            <label class="col-md-3 control-label">Inline Help</label>
-                            <div class="col-md-9">
-                                <input type="text" class="form-control input-inline input-medium" placeholder="Enter text">
-                                <span class="help-inline"> Inline help. </span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Input Group</label>
-                            <div class="col-md-9">
-                                <div class="input-inline input-medium">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-user"></i>
-                                        </span>
-                                        <input type="email" class="form-control" placeholder="Email Address">
-                                    </div>
-                                </div>
-                                <span class="help-inline"> Inline help. </span>
-                            </div>
-                        </div>-->
+
+
                         <div class="form-group">
                             <label class="col-md-3 control-label">Email Address</label>
                             <div class="col-md-9">
@@ -58,11 +39,11 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-envelope"></i>
                                     </span>
-                                    <input type="email" class="form-control" placeholder="Email Address" disabled="" value="zijian@nyu.edu">
+                                    <input type="email" class="form-control" placeholder="Email Address" disabled="" ng-model="user.email">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display: none">
                             <label class="col-md-3 control-label">Password</label>
                             <div class="col-md-9">
                                 <div class="input-group">
@@ -78,9 +59,9 @@
                                    ng-class="{'font-green-sharp' : availRadio = 1, 'font-red-mint': availRadio = 0, 'text-warning' : availRadio = 2}">Availability</label>
                             <div class="col-md-9">
                                 <div class="btn-group">
-                                    <label class="btn btn-default" ng-model="availRadio" uib-btn-radio="1" uncheckable>Available</label>
-                                    <label class="btn btn-default" ng-model="availRadio" uib-btn-radio="2" uncheckable>Maybe</label>
-                                    <label class="btn btn-default" ng-model="availRadio" uib-btn-radio="0" uib-uncheckable>Unavailable</label>
+                                    <label class="btn btn-default" ng-model="user.availability" uib-btn-radio="1" uncheckable>Available</label>
+                                    <label class="btn btn-default" ng-model="user.availability" uib-btn-radio="2" uncheckable>Maybe</label>
+                                    <label class="btn btn-default" ng-model="user.availability" uib-btn-radio="0" uib-uncheckable>Unavailable</label>
                                 </div>
                             </div>
                         </div>
@@ -88,166 +69,30 @@
                             <label class="col-md-3 control-label">gender</label>
                             <div class="col-md-9">
                                 <div class="btn-group">
-                                    <label class="btn btn-default" ng-model="genderRadio" uib-btn-radio="0" uncheckable>
+                                    <label class="btn btn-default" ng-model="user.gender" uib-btn-radio="0" uncheckable>
                                         <i class="fa fa-venus"></i>
                                     </label>
-                                    <label class="btn btn-default" ng-model="genderRadio" uib-btn-radio="1" uncheckable>
+                                    <label class="btn btn-default" ng-model="user.gender" uib-btn-radio="1" uncheckable>
                                         <i class="fa fa-mars"></i>
                                     </label>
                                 </div>
                             </div>
                         </div>
 
-                        <!--<div class="form-group">
-                            <label class="col-md-3 control-label">Right Icon</label>
-                            <div class="col-md-9">
-                                <div class="input-icon right">
-                                    <i class="fa fa-microphone"></i>
-                                    <input type="text" class="form-control" placeholder="Right icon">
-                                </div>
-                            </div>
-                        </div>-->
+
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Icon Input in Group Input</label>
+                            <label class="col-md-3 control-label">Date of Birth</label>
                             <div class="col-md-9">
                                 <div class="input-group">
                                     <div class="input-icon">
                                         <i class="fa fa-lock fa-fw"></i>
-                                        <input id="newpassword" class="form-control" type="text" name="password" placeholder="password" />
+                                        <input class="form-control" type="date" ng-model="user.dob"/>
                                     </div>
-                                    <span class="input-group-btn">
-                                        <button id="genpassword" class="btn btn-success" type="button">
-                                            <i class="fa fa-arrow-left fa-fw" /></i> Random
-                                        </button>
-                                    </span>
+                                    {{user.dob}}
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Input With Spinner</label>
-                            <div class="col-md-9">
-                                <input type="password" class="form-control spinner" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Static Control</label>
-                            <div class="col-md-9">
-                                <p class="form-control-static"> email@example.com </p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Disabled</label>
-                            <div class="col-md-9">
-                                <input type="password" class="form-control" placeholder="Disabled" disabled>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Readonly</label>
-                            <div class="col-md-9">
-                                <input type="password" class="form-control" placeholder="Readonly" readonly>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Dropdown</label>
-                            <div class="col-md-9">
-                                <select class="form-control">
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
-                                    <option>Option 5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Multiple Select</label>
-                            <div class="col-md-9">
-                                <select multiple class="form-control">
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
-                                    <option>Option 5</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Textarea</label>
-                            <div class="col-md-9">
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputFile" class="col-md-3 control-label">File input</label>
-                            <div class="col-md-9">
-                                <input type="file" id="exampleInputFile">
-                                <p class="help-block"> some help text here. </p>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Checkboxes</label>
-                            <div class="col-md-9">
-                                <div class="checkbox-list">
-                                    <label>
-                                        <input type="checkbox"> Checkbox 1
-                                    </label>
-                                    <label>
-                                        <input type="checkbox"> Checkbox 1
-                                    </label>
-                                    <label>
-                                        <input type="checkbox" disabled> Disabled
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Inline Checkboxes</label>
-                            <div class="col-md-9">
-                                <div class="checkbox-list">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox21" value="option1"> Checkbox 1
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox22" value="option2"> Checkbox 2
-                                    </label>
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" id="inlineCheckbox23" value="option3" disabled> Disabled
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Radio</label>
-                            <div class="col-md-9">
-                                <div class="radio-list">
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios22" value="option1" checked> Option 1
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios23" value="option2" checked> Option 2
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios24" value="option2" disabled> Disabled
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Inline Radio</label>
-                            <div class="col-md-9">
-                                <div class="radio-list">
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optionsRadios" id="optionsRadios25" value="option1" checked> Option 1
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optionsRadios" id="optionsRadios26" value="option2" checked> Option 2
-                                    </label>
-                                    <label class="radio-inline">
-                                        <input type="radio" name="optionsRadios" id="optionsRadios27" value="option3" disabled> Disabled
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="form-actions">
                         <div class="row">

@@ -154,10 +154,21 @@ angular.module("app", [
 
     .run([
         "$rootScope",
-        "settings",
         "$state",
         "socketService",
-        function($rootScope, settings, $state, socketService) {
+        function($rootScope, $state, socketService) {
+
         $rootScope.$state = $state; // state to be accessed from view
-        $rootScope.$settings = settings; // state to be accessed from view
+        $rootScope.settings = {
+            layout: {
+                pageSidebarClosed: false, // sidebar menu state
+                pageContentWhite: true, // set page content layout
+                pageBodySolid: false, // solid body color state
+                pageAutoScrollOnLoad: 1000, // auto scroll to top on page load,
+                pageQuickSidebarOpen: false
+            },
+            assetsPath: '/assets/metronic',
+            globalPath: '/assets/metronic/global',
+            layoutPath: '/assets/metronic/layouts/layout4'
+        }; // state to be accessed from view
     }]);
