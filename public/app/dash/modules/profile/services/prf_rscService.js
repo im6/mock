@@ -9,7 +9,7 @@ angular.module('app.profile')
             };
 
             var output = {
-                treephoto: function(){
+                get: function(){
                     return $resource("/dash/treephoto");
                 }
             };

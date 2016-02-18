@@ -2,8 +2,9 @@
 angular.module('app.profile')
     .controller('prf_mainController',[
         "$rootScope",
+        "prf_rscService",
         "$scope",
-        function($rootScope, $scope) {
+        function($rootScope, prf_rscService, $scope) {
             $scope.$on('$viewContentLoaded', function() {
                 // initialize core components
                 App.initAjax();
@@ -22,6 +23,11 @@ angular.module('app.profile')
                     gender: false,
                     availability: 0,
                     dob: null
+                },
+                updateUser: function(){
+                    prf_rscService.update().get(function(){
+
+                    });
                 }
 
             });

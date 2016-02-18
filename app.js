@@ -41,7 +41,8 @@ var routeMap = {
     "/dash/bookmark": "./modules/bookmark/routes/route",
     "/dash/datetree": "./modules/datetree/routes/route",
     "/home": "./modules/homepage/routes/route",
-    "/auth": "./modules/auth/routes/route"
+    "/auth": "./modules/auth/routes/route",
+    "/profile": "./modules/profile/routes/route"
 };
 
 for(var oneUrl in routeMap){
