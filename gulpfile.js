@@ -3,11 +3,22 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    rimraf = require('rimraf'),
     minifyCss = require('gulp-minify-css'),
     sourceMaps = require('gulp-sourcemaps');
 
-
+var path = {
+    buildStyle:   'public/build/homepage/css'
+};
 /*==========   for the homepage optmization ===============*/
+gulp.task("clean_js", function (cb) {
+    rimraf('public/build/', cb);
+});
+
+gulp.task("clean_css", function (cb) {
+    rimraf(path.buildStyle, cb);
+});
+
 
 gulp.task('homeStyle', function(){
     return gulp.src(['public/app/homepage/css/*.css', '!public/app/homepage/css/style_all.css'])
@@ -16,15 +27,15 @@ gulp.task('homeStyle', function(){
         .pipe(gulp.dest('public/build/homepage/css'))
 });
 
-gulp.task('loginStyle', function(){
+gulp.task('loginStyle',["clean_css"], function(){
     return gulp.src(['public/app/homepage/css/*.css', '!public/app/homepage/css/style_all.css'])
         .pipe(concat('style.css'))
         .pipe(minifyCss())
-        .pipe(gulp.dest('public/build/homepage/css'))
+        .pipe(gulp.dest(path.buildStyle))
 });
 
 
-gulp.task('appScript', function(){
+gulp.task('appScript',["clean_js"], function(){
     return gulp.src(['public/app/**/*.js'])
         .pipe(sourceMaps.init())
         .pipe(jshint())
