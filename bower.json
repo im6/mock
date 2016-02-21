@@ -1,0 +1,35 @@
+{
+  "name": "Dash",
+  "description": "node.js data platform",
+  "main": "",
+  "authors": [
+    "jinouwuque <ee2win@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jinouwuque/dash",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "jquery-migrate": "^1.3.0",
+    "uniform": "jquery-uniform#^1.0.0",
+
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-cookie": "^4.1.0",
+    "angular-resource": "^1.5.0",
+    "angular-sanitize": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
+    "angular-bootstrap": "^1.1.2",
+    "lodash": "^4.5.0",
+    "moment": "^2.11.2",
+    "bootstrap": "^3.3.6"
+  }
+}

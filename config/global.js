@@ -1,4 +1,4 @@
 module.exports = {
-    requireAuth: false
-
+    requireAuth: false,
+    useMongo: true
 };
