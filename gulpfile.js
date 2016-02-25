@@ -4,46 +4,31 @@ var jshint = require('gulp-jshint'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rimraf = require('rimraf'),
+    mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
     sourceMaps = require('gulp-sourcemaps');
 
-var path = {
-    buildStyle:   'public/build/homepage/css'
-};
 /*==========   for the homepage optmization ===============*/
-gulp.task("clean_js", function (cb) {
-    rimraf('public/build/', cb);
+gulp.task("hm_clean", function (cb) {
+    rimraf('public/build/home', cb);
 });
 
-gulp.task("clean_css", function (cb) {
-    rimraf(path.buildStyle, cb);
-});
-
-
-gulp.task('homeStyle', function(){
+gulp.task('hm_css',['hm_clean'], function(){
     return gulp.src(['public/app/homepage/css/*.css', '!public/app/homepage/css/style_all.css'])
-        .pipe(concat('style.css'))
+        .pipe(concat('style.min.css'))
         .pipe(minifyCss())
-        .pipe(gulp.dest('public/build/homepage/css'))
+        .pipe(gulp.dest('public/build/home/css'))
 });
 
-gulp.task('loginStyle',["clean_css"], function(){
-    return gulp.src(['public/app/homepage/css/*.css', '!public/app/homepage/css/style_all.css'])
-        .pipe(concat('style.css'))
-        .pipe(minifyCss())
-        .pipe(gulp.dest(path.buildStyle))
-});
-
-
-gulp.task('appScript',["clean_js"], function(){
-    return gulp.src(['public/app/**/*.js'])
-        .pipe(sourceMaps.init())
+gulp.task('hm_js',["hm_css"], function(){
+    console.log(3);
+    return gulp.src(['public/app/homepage/js/**/*.js','public/assets/home/**/*.js'])
         .pipe(jshint())
-        .pipe(uglify())
-        .pipe(sourceMaps.write({addComment: false}))
-        .pipe(gulp.dest('public/build/'));
+        //.pipe(uglify())
+        .pipe(gulp.dest('public/build/home/js'));
 });
 
+gulp.task('home',["hm_js"]);
 /*========== for the angular dash page optimziation =========== */
 
 //var dashCssList = [
@@ -66,8 +51,17 @@ gulp.task('appScript',["clean_js"], function(){
 //        .pipe(minifyCss())
 //        .pipe(gulp.dest('public/build/dash/css'));
 //});
+gulp.task('loginStyle',["clean_css"], function(){
+    return gulp.src(['public/app/homepage/css/*.css', '!public/app/homepage/css/style_all.css'])
+        .pipe(concat('style.css'))
+        .pipe(minifyCss())
+        .pipe(gulp.dest('public/build/homepage/css'))
+});
 
-gulp.task('default',[
-    'homeStyle',
-    'appScript'
-]);
+gulp.task('bowerFile', function() {
+    return gulp.src(mainBowerFiles(/* options */), { base: 'path/to/bower_components' })
+        .pipe(concat('bundle.js'))
+        .pipe(gulp.dest('public/asset'))
+});
+
+gulp.task('default',[]);

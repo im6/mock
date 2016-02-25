@@ -1,20 +1,19 @@
 require.config({
     waitSeconds: 0,
-    baseUrl: 'build/home/js/',
     paths: {
         "jquery": [
             "//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min",
-            "jquery.min"
+            "/assets/home/jquery.min"
         ],
         "jquery-ui": [
             "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min",
-            "jquery-ui.min"
+            "/assets/home/jquery-ui.min"
         ],
-        "jQueryRotate": "jQueryRotate",
-        "superscrollorama": "jquery.superscrollorama",
-        "TweenMax": "TweenMax.min",
-        "async": "async",
-        "smoothScroll": "smoothscroll"
+        "jQueryRotate": "/assets/home/jQueryRotate",
+        "superscrollorama": "/assets/home/jquery.superscrollorama",
+        "TweenMax": "/assets/home/TweenMax.min",
+        "async": "/assets/home/requirejs/async",
+        "smoothScroll": "/assets/home/smoothscroll"
     },
     shim: {
         'jquery-ui': { deps: ['jquery']},
@@ -23,6 +22,6 @@ require.config({
     }
 });
 
-require(['index.js','smoothScroll'],function (controller) {
+require(['/build/homepage/js/index.js','smoothScroll'],function (controller) {
     controller.initial();
 });

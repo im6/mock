@@ -12,9 +12,9 @@ html(xmlns='http://www.w3.org/1999/xhtml')
         link(rel='shortcut icon', href='/content/homepage/image/logo/favicon3.ico')
         //-  for png convert to ico go to: http://www.favico.com/
         include include/googleFonts
-        link(href='/build/homepage/css/style.css', rel='stylesheet', type='text/css')
+        link(href='/build/home/css/style.min.css', rel='stylesheet', type='text/css')
         include include/nojs
     body
         block homeContent
-        script(data-main='/build/homepage/js/main', src='/assets/home/requirejs/require.js')
+        script(data-main='/build/home/js/main', src='/build/home/js/requirejs/require.js')
         include include/googleTrack

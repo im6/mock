@@ -1,0 +1,98 @@
+<div class="note note-info">
+    <h3>
+        Welcome to bookmark
+        <span class="close" data-close="note"></span>
+    </h3>
+    <p>
+        This bookmark list includes a lot of useful website for web developer to watch.
+    </p>
+    <br>
+    <p>
+        <span class="label label-danger">
+            NOTE:</span>
+        <span>
+        You could edit on yourself.
+        </span>
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-share font-blue"></i>
+                    <span class="caption-subject font-blue bold uppercase">Favorite Webs</span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group">
+                        <a class="btn btn-sm blue btn-outline btn-circle" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true"> Filter By
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <div class="dropdown-menu hold-on-click dropdown-checkboxes pull-right">
+                            <label>
+                                <input type="checkbox" />
+                                Id
+                            </label>
+                            <label>
+                                <input type="checkbox" />
+                                Name
+                            </label>
+                            <label>
+                                <input type="checkbox" />
+                                Date
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="scroller" style="height: 300px;" data-always-visible="1" data-rail-visible="0">
+                    <ul class="feeds">
+
+                        <li ng-repeat="oneBook in viewModel.books">
+
+                            <div class="col1">
+                                <div class="cont">
+                                    <div class="cont-col1">
+                                        <div class="label label-sm label-info">
+                                            <i class="fa fa-check"></i>
+                                        </div>
+                                    </div>
+                                    <div class="cont-col2">
+                                        <div class="desc">
+                                            {{oneBook.name}}
+                                            <a href="{{oneBook.url}}" target="_blank">
+                                                <span class="label label-sm label-warning ">
+                                                    <i class="fa fa-share"></i>
+                                                </span>
+                                            </a>
+                                            <a class="label label-sm label-danger" ng-click="delete(oneBook.id)">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col2">
+                                <span class="date">
+                                    {{oneBook.created.substring(5,10)}}
+                                </span>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="scroller-footer">
+                    <div class="btn-arrow-link pull-right">
+                        <a href="javascript:;">See All Records</a>
+                        <i class="icon-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
