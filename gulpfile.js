@@ -1,31 +1,35 @@
-var gulp = require('gulp');
-
-var jshint = require('gulp-jshint'),
+"use restrict";
+var gulp = require('gulp'),
+    jshint = require('gulp-jshint'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rimraf = require('rimraf'),
+    watch = require('gulp-watch'),
     mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
     sourceMaps = require('gulp-sourcemaps');
 
-/*==========   for the homepage optmization ===============*/
+/*==========   for the home optmization ===============*/
 gulp.task("hm_clean", function (cb) {
     rimraf('public/build/home', cb);
 });
 
 gulp.task('hm_css',['hm_clean'], function(){
-    return gulp.src(['public/app/homepage/css/*.css', '!public/app/homepage/css/style_all.css'])
+    return gulp.src(['src/app/homepage/css/*.css'])
         .pipe(concat('style.min.css'))
         .pipe(minifyCss())
         .pipe(gulp.dest('public/build/home/css'))
 });
 
 gulp.task('hm_js',["hm_css"], function(){
-    console.log(3);
-    return gulp.src(['public/app/homepage/js/**/*.js','public/assets/home/**/*.js'])
+    return gulp.src(['src/app/homepage/js/**/*.js','src/app/homepage/assets/**/*.js'])
         .pipe(jshint())
         //.pipe(uglify())
         .pipe(gulp.dest('public/build/home/js'));
+});
+
+gulp.task('hm_watch',function(){
+    gulp.watch(['src/app/homepage/js/**/*.js','src/app/homepage/assets/**/*.js'], ['home']);
 });
 
 gulp.task('home',["hm_js"]);
