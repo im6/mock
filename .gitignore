@@ -35,11 +35,8 @@ node_modules
 # webstorm user settings
 .idea/
 
-# grunt built files
+# gulp built files
 public/build/*
-
-# temperary ignore metronic in www
-www/assets/metronic
 
 # bower repository
 vendor

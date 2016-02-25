@@ -32,7 +32,22 @@ gulp.task('hm_watch',function(){
     gulp.watch(['src/app/homepage/js/**/*.js','src/app/homepage/assets/**/*.js'], ['home']);
 });
 
-gulp.task('home',["hm_js"]);
+gulp.task('hm',["hm_js"]);
+/*============= for auth ===============*/
+gulp.task("au_clean", function (cb) {
+    rimraf('public/build/auth', cb);
+});
+gulp.task('au_css', function(){
+    return gulp.src(['src/app/auth/css/*.css'])
+        .pipe(concat('style.min.css'))
+        .pipe(minifyCss())
+        .pipe(gulp.dest('public/build/auth/css'))
+});
+gulp.task('au_font', function(){
+    return gulp.src(['src/app/auth/fonts/*'])
+        .pipe(gulp.dest('public/build/auth/fonts'))
+});
+gulp.task('au',["au_css",'au_font']);
 /*========== for the angular dash page optimziation =========== */
 
 //var dashCssList = [

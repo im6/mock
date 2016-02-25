@@ -4,8 +4,7 @@ html
         meta(charset='UTF-8')
         title Welcome to login
         link(rel='shortcut icon', href='/content/dash/icon/favicon.ico')
-        link(href='/assets/metronic/global/plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-        link(rel='stylesheet', href='/app/auth/css/style.css')
+        link(rel='stylesheet', href='/build/auth/css/style.min.css')
     body
         .wrapper
             .container
@@ -32,5 +31,3 @@ html
                 while n < 30
                     li
                     - n++
-
-        script(data-main='/build/auth/js/main', src='/assets/requirejs/require.js')
