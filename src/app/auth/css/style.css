@@ -93,7 +93,7 @@ form input {
 }
 form input:hover {
     background-color: rgba(255, 255, 255, 0.4);
-    color: #6c6c6c;
+    color: white;
 }
 form input:focus {
     background-color: white;
@@ -206,6 +206,13 @@ form button:hover {
     left: 90%;
     width: 160px;
     height: 160px;
+    -webkit-animation-delay: 11s;
+    animation-delay: 11s;
+}
+.bg-bubbles li:nth-child(11) {
+    left: 40%;
+    width: 120px;
+    height: 120px;
     -webkit-animation-delay: 11s;
     animation-delay: 11s;
 }
