@@ -1,0 +1,282 @@
+a.page-quick-sidebar-toggler(href='javascript:;', ng-click='toggleSocket(false)')
+    i.icon-login
+.page-quick-sidebar
+    .nav-justified
+        ul.nav.nav-tabs.nav-justified
+            li.active
+                a(href='#', data-target='#quick_sidebar_tab_1', data-toggle='tab', dropdown-menu-hover='', data-close-others='true')
+                    | Users
+                    span.badge.badge-danger
+                        | {{viewModel.userList.length}}
+            li
+                a(href='#', data-target='#quick_sidebar_tab_2', data-toggle='tab', dropdown-menu-hover='', data-close-others='true')
+                    | Alerts
+                    span.badge.badge-success 7
+            li.dropdown
+                a.dropdown-toggle(href='#', dropdown-menu-hover='', data-toggle='dropdown', data-close-others='true')
+                    | More
+                    i.fa.fa-angle-down
+                ul.dropdown-menu.pull-right(role='menu')
+                    li
+                        a(href='#', data-target='#quick_sidebar_tab_3', data-toggle='tab')
+                            i.icon-bell
+                            |  Alerts
+                    li
+                        a(href='#', data-target='#quick_sidebar_tab_3', data-toggle='tab')
+                            i.icon-info
+                            |  Notifications
+                    li
+                        a(href='#', data-target='#quick_sidebar_tab_3', data-toggle='tab')
+                            i.icon-speech
+                            |  Activities
+                    li.divider
+                    li
+                        a(href='#', data-target='#quick_sidebar_tab_3', data-toggle='tab')
+                            i.icon-settings
+                            |  Settings
+        .tab-content
+            #quick_sidebar_tab_1.tab-pane.active.page-quick-sidebar-chat(ng-class="{'page-quick-sidebar-content-item-shown': viewModel.showDialog}")
+                .page-quick-sidebar-chat-users(data-rail-color='#ddd', data-wrapper-class='page-quick-sidebar-list')
+                    ul.media-list.list-items
+                        li.media(ng-repeat='oneuser in viewModel.userList', ng-click='toggleDialog(true)')
+                            .media-status
+                                span.badge.badge-success
+                                    | {{oneuser.msgCnt}}
+                            img.media-object(src='/assets/metronic/pages/media/users/avatar3.jpg', alt='...')
+                            .media-body
+                                h4.media-heading
+                                    | {{oneuser.name}}
+                                .media-heading-sub
+                                    | {{oneuser.desc}}
+                .page-quick-sidebar-item
+                    .page-quick-sidebar-chat-user
+                        .page-quick-sidebar-nav
+                            a.page-quick-sidebar-back-to-list(href='javascript:;', ng-click='toggleDialog(false)')
+                                i.icon-arrow-left
+                                | Back
+                        .page-quick-sidebar-chat-user-messages
+                            .post(ng-class="{'out': onemsg.isOut, 'in': !onemsg.isOut}", ng-repeat='onemsg in viewModel.currentDialog')
+                                img.avatar(alt='', src='/assets/metronic/layouts/layout/img/avatar3.jpg')
+                                .message
+                                    span.arrow
+                                    a.name(href='javascript:void(0)')
+                                        | {{onemsg.name}}
+                                    span.datetime
+                                        | {{onemsg.time}}
+                                    span.body
+                                        | {{onemsg.msg}}
+                        .page-quick-sidebar-chat-user-form
+                            .input-group
+                                input.form-control(type='text', placeholder='Type a message here...', ng-keypress='keyPost($event)', ng-model='viewModel.currentMsg')
+                                .input-group-btn
+                                    button.btn.green(type='button', style='height: 34px', ng-click='mousePost()')
+                                        i.icon-paper-clip
+            #quick_sidebar_tab_2.tab-pane.page-quick-sidebar-alerts
+                .page-quick-sidebar-alerts-list
+                    h3.list-heading General
+                    ul.feeds.list-items
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-info
+                                            i.fa.fa-check
+                                    .cont-col2
+                                        .desc
+                                            | You have 4 pending tasks.
+                                            span.label.label-sm.label-warning
+                                                | Take action
+                                                i.fa.fa-share
+                            .col2
+                                .date  Just now
+                        li
+                            a(href='#')
+                                .col1
+                                    .cont
+                                        .cont-col1
+                                            .label.label-sm.label-success
+                                                i.fa.fa-bar-chart-o
+                                        .cont-col2
+                                            .desc  Finance Report for year 2013 has been released.
+                                .col2
+                                    .date  20 mins
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-danger
+                                            i.fa.fa-user
+                                    .cont-col2
+                                        .desc  You have 5 pending membership that requires a quick review.
+                            .col2
+                                .date  24 mins
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-info
+                                            i.fa.fa-shopping-cart
+                                    .cont-col2
+                                        .desc
+                                            | New order received with
+                                            span.label.label-sm.label-success  Reference Number: DR23923
+                            .col2
+                                .date  30 mins
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-success
+                                            i.fa.fa-user
+                                    .cont-col2
+                                        .desc  You have 5 pending membership that requires a quick review.
+                            .col2
+                                .date  24 mins
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-info
+                                            i.fa.fa-bell-o
+                                    .cont-col2
+                                        .desc
+                                            | Web server hardware needs to be upgraded.
+                                            span.label.label-sm.label-warning  Overdue
+                            .col2
+                                .date  2 hours
+                        li
+                            a(href='#')
+                                .col1
+                                    .cont
+                                        .cont-col1
+                                            .label.label-sm.label-default
+                                                i.fa.fa-briefcase
+                                        .cont-col2
+                                            .desc  IPO Report for year 2013 has been released.
+                                .col2
+                                    .date  20 mins
+                    h3.list-heading System
+                    ul.feeds.list-items
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-info
+                                            i.fa.fa-check
+                                    .cont-col2
+                                        .desc
+                                            | You have 4 pending tasks.
+                                            span.label.label-sm.label-warning
+                                                | Take action
+                                                i.fa.fa-share
+                            .col2
+                                .date  Just now
+                        li
+                            a(href='#')
+                                .col1
+                                    .cont
+                                        .cont-col1
+                                            .label.label-sm.label-danger
+                                                i.fa.fa-bar-chart-o
+                                        .cont-col2
+                                            .desc  Finance Report for year 2013 has been released.
+                                .col2
+                                    .date  20 mins
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-default
+                                            i.fa.fa-user
+                                    .cont-col2
+                                        .desc  You have 5 pending membership that requires a quick review.
+                            .col2
+                                .date  24 mins
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-info
+                                            i.fa.fa-shopping-cart
+                                    .cont-col2
+                                        .desc
+                                            | New order received with
+                                            span.label.label-sm.label-success  Reference Number: DR23923
+                            .col2
+                                .date  30 mins
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-success
+                                            i.fa.fa-user
+                                    .cont-col2
+                                        .desc  You have 5 pending membership that requires a quick review.
+                            .col2
+                                .date  24 mins
+                        li
+                            .col1
+                                .cont
+                                    .cont-col1
+                                        .label.label-sm.label-warning
+                                            i.fa.fa-bell-o
+                                    .cont-col2
+                                        .desc
+                                            | Web server hardware needs to be upgraded.
+                                            span.label.label-sm.label-default  Overdue
+                            .col2
+                                .date  2 hours
+                        li
+                            a(href='#')
+                                .col1
+                                    .cont
+                                        .cont-col1
+                                            .label.label-sm.label-info
+                                                i.fa.fa-briefcase
+                                        .cont-col2
+                                            .desc  IPO Report for year 2013 has been released.
+                                .col2
+                                    .date  20 mins
+            #quick_sidebar_tab_3.tab-pane.page-quick-sidebar-settings
+                .page-quick-sidebar-settings-list
+                    h3.list-heading General Settings
+                    ul.list-items.borderless
+                        li
+                            | Enable Notifications
+                            input.make-switch(type='checkbox', checked='', data-size='small', data-on-color='success', data-on-text='ON', data-off-color='default', data-off-text='OFF')
+                        li
+                            | Allow Tracking
+                            input.make-switch(type='checkbox', data-size='small', data-on-color='info', data-on-text='ON', data-off-color='default', data-off-text='OFF')
+                        li
+                            | Log Errors
+                            input.make-switch(type='checkbox', checked='', data-size='small', data-on-color='danger', data-on-text='ON', data-off-color='default', data-off-text='OFF')
+                        li
+                            | Auto Sumbit Issues
+                            input.make-switch(type='checkbox', data-size='small', data-on-color='warning', data-on-text='ON', data-off-color='default', data-off-text='OFF')
+                        li
+                            | Enable SMS Alerts
+                            input.make-switch(type='checkbox', checked='', data-size='small', data-on-color='success', data-on-text='ON', data-off-color='default', data-off-text='OFF')
+                    h3.list-heading System Settings
+                    ul.list-items.borderless
+                        li
+                            | Security Level
+                            select.form-control.input-inline.input-sm.input-small
+                                option(value='1') Normal
+                                option(value='2', selected='') Medium
+                                option(value='e') High
+                        li
+                            | Failed Email Attempts
+                            input.form-control.input-inline.input-sm.input-small(value='5')
+                        li
+                            | Secondary SMTP Port
+                            input.form-control.input-inline.input-sm.input-small(value='3560')
+                        li
+                            | Notify On System Error
+                            input.make-switch(type='checkbox', checked='', data-size='small', data-on-color='danger', data-on-text='ON', data-off-color='default', data-off-text='OFF')
+                        li
+                            | Notify On SMTP Error
+                            input.make-switch(type='checkbox', checked='', data-size='small', data-on-color='warning', data-on-text='ON', data-off-color='default', data-off-text='OFF')
+                    .inner-content
+                        button.btn.btn-success
+                            i.icon-settings
+                            |  Save Changes
