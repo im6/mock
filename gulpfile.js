@@ -7,9 +7,40 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     gulpJade = require('gulp-jade'),
     jade = require('jade'),
+    gulpLess = require('gulp-less'),
+    gulpAutoPrefixer = require('gulp-autoprefixer'),
     mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
     sourceMaps = require('gulp-sourcemaps');
+
+/*==========   for dateTree ===============*/
+gulp.task("dt_clean", function (cb) {
+    rimraf('public/build/datetree', cb);
+});
+
+gulp.task('dt_css',['dt_clean'], function(){
+    return gulp.src(['src/app/datetree/style/*.less'])
+        .pipe(less())
+        .pipe(autoprefixer())
+        .pipe(concat('style.min.css'))
+        //.pipe(minifyCss())
+        .pipe(gulp.dest('public/build/datetree/style'))
+});
+
+gulp.task('dt_js',["dt_css"], function(){
+    return gulp.src(['src/app/datetree/js/**/*.js','src/app/datetree/assets/**/*'])
+        .pipe(jshint())
+        .pipe()
+        //.pipe(uglify())
+        .pipe(gulp.dest('public/build/datetree/js'));
+});
+
+gulp.task('dt_watch',function(){
+    gulp.watch(['src/app/datetree/'], ['home']);
+});
+
+gulp.task('dt',[""]);
+
 
 /*==========   for the home optmization ===============*/
 gulp.task("hm_clean", function (cb) {

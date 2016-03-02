@@ -39,7 +39,7 @@ var routeMap = {
     "/": "./modules/root/routes/route",
     "/dash": "./modules/dashRoot/routes/route",
     "/dash/bookmark": "./modules/bookmark/routes/route",
-    "/dash/datetree": "./modules/datetree/routes/route",
+    "/datetree": "./modules/datetree/routes/route",
     "/home": "./modules/homepage/routes/route",
     "/auth": "./modules/auth/routes/route",
     "/profile": "./modules/profile/routes/route"
