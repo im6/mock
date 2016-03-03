@@ -39,7 +39,7 @@ gulp.task('dt_watch',function(){
     gulp.watch(['src/app/datetree/'], ['home']);
 });
 
-gulp.task('dt',[""]);
+gulp.task('dt',["dt_watch"]);
 
 
 /*==========   for the home optmization ===============*/
