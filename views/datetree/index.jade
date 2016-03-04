@@ -1,8 +1,7 @@
 extends layout
 
 block content1
-    div(ng-include="build/datetree/views/head.html")
-    div(ng-include="build/datetree/views/sidebar.html")
-    div(ng-include="build/datetree/views/quickbar.html")
-    div(ng-include="build/datetree/views/footer.html")
-    div(ui-view)
+    div(ng-include="build/datetree/views/main/views/main_head.html",ng-controller="lyt_headCtrl")
+    div(ng-include="build/datetree/views/main/views/main_sidebar.html",ng-controller="lyt_sidebarCtrl")
+    div(ng-include="build/datetree/views/main/views/main_quickbar.html",ng-controller="lyt_quickbarCtrl")
+    div(ng-include="build/datetree/views/main/views/main_footer.html", ng-controller="lyt_footerCtrl")

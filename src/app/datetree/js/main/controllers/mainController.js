@@ -3,5 +3,29 @@ angular.module("app")
         "$scope",
         "$rootScope",
         function($scope,$rootScope){
-            alert("come to the main controler");
+            //alert("come to the main controler");
+        }])
+    .controller("lyt_headCtrl", [
+        "$scope",
+        "$rootScope",
+        function($scope,$rootScope){
+            //alert("come to the main controler");
+        }])
+    .controller("lyt_sidebarCtrl", [
+        "$scope",
+        "$rootScope",
+        function($scope,$rootScope){
+
+        }])
+    .controller("lyt_quickbarCtrl", [
+        "$scope",
+        "$rootScope",
+        function($scope,$rootScope){
+
+        }])
+    .controller("lyt_footerCtrl", [
+        "$scope",
+        "$rootScope",
+        function($scope,$rootScope){
+
         }]);
