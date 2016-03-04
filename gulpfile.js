@@ -40,7 +40,7 @@ gulp.task('dt_js',["dt_css"], function(){
         .pipe(gulp.dest('public/build/datetree/js'));
 });
 
-gulp.task('dt_jade',["dt_css"], function(){
+gulp.task('dt_jade',["dt_js"], function(){
     console.log("dt_jade");
     return gulp.src('src/app/datetree/js/**/*.jade')
         .pipe(gulpJade({

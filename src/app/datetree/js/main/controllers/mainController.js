@@ -1,4 +1,4 @@
-angular.app("app")
+angular.module("app")
     .controller("mainController", [
         "$scope",
         "$rootScope",
