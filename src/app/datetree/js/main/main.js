@@ -5,4 +5,5 @@ angular.app("app",[
     "oc.lazyLoad",
     "ngResource",
     "ngAnimate"
+
 ]);

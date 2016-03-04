@@ -7,8 +7,8 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     gulpJade = require('gulp-jade'),
     jade = require('jade'),
-    gulpLess = require('gulp-less'),
-    gulpAutoPrefixer = require('gulp-autoprefixer'),
+    less = require('gulp-less')
+    autoprefixer = require('gulp-autoprefixer'),
     mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
     sourceMaps = require('gulp-sourcemaps');
@@ -22,6 +22,7 @@ gulp.task("dt_clean2", function (cb) {
 });
 
 gulp.task('dt_css',['dt_clean1','dt_clean2'], function(){
+    console.log("dt_css");
     return gulp.src(['src/app/datetree/style/*.less'])
         .pipe(less())
         .pipe(autoprefixer())
@@ -31,14 +32,16 @@ gulp.task('dt_css',['dt_clean1','dt_clean2'], function(){
 });
 
 gulp.task('dt_js',["dt_css"], function(){
+    console.log("dt_js");
     return gulp.src(['src/app/datetree/js/**/*.js'])
         .pipe(jshint())
-        .pipe(concat())
+        .pipe(concat("app.js"))
         //.pipe(uglify())
         .pipe(gulp.dest('public/build/datetree/js'));
 });
 
 gulp.task('dt_jade',["dt_css"], function(){
+    console.log("dt_jade");
     return gulp.src('src/app/datetree/js/**/*.jade')
         .pipe(gulpJade({
             jade: jade,
@@ -48,8 +51,8 @@ gulp.task('dt_jade',["dt_css"], function(){
 });
 
 
-gulp.task('dt_watch',function(){
-    gulp.watch(['src/app/datetree/'], ['dt_jade']);
+gulp.task('dt_watch',function(cb){
+    gulp.watch('src/app/datetree/**/*', ['dt_jade']);
 });
 
 gulp.task('dt',["dt_watch"]);
