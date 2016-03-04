@@ -10,14 +10,10 @@ html(xmlns='http://www.w3.org/1999/xhtml' ng-app="app")
         meta(name='google-site-verification', content='7opgGf9pWZivNXvF017t2ran4UgLVZnQxpCVo6cH9IY')
         title Dash: online Data Visual
         link(rel='shortcut icon', href='/content/dash/icon/favicon.ico')
-        link(id='ng_load_plugins_before')
         include include/styleLibrary
         include include/jsLibrary
-        include include/appJs
 
-    body(ng-controller="AppController"
-    class="page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo page-on-load"
-    ng-class="{'page-sidebar-closed': settings.layout.pageSidebarClosed,'page-quick-sidebar-open': settings.layout.pageQuickSidebarOpen}")
+    body(ng-controller="mainController")
         block content1
 
 
