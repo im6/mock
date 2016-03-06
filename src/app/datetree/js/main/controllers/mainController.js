@@ -15,7 +15,6 @@ angular.module("app")
         "$scope",
         "$rootScope",
         function($scope,$rootScope){
-
         }])
     .controller("lyt_quickbarCtrl", [
         "$scope",

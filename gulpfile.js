@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     gulpJade = require('gulp-jade'),
     jade = require('jade'),
-    less = require('gulp-less')
+    less = require('gulp-less'),
+    flatten = require('gulp-flatten'),
     autoprefixer = require('gulp-autoprefixer'),
     mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
@@ -47,6 +48,7 @@ gulp.task('dt_jade',["dt_js"], function(){
             jade: jade,
             pretty: true
         }))
+        .pipe(flatten())
         .pipe(gulp.dest('public/build/datetree/views'));
 });
 
