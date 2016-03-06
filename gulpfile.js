@@ -22,17 +22,22 @@ gulp.task("dt_clean2", function (cb) {
     rimraf('public/build/datetree/style', cb);
 });
 
-gulp.task('dt_css',['dt_clean1','dt_clean2'], function(){
+gulp.task('dt_asset',[], function(){
+    return gulp.src(['src/app/datetree/asset/**/*'])
+        .pipe(gulp.dest('public/build/datetree/asset'))
+});
+
+gulp.task('dt_css',[], function(){
     console.log("dt_css");
     return gulp.src(['src/app/datetree/style/*.less'])
-        .pipe(less())
-        .pipe(autoprefixer())
+        //.pipe(less())
+        //.pipe(autoprefixer())
         .pipe(concat('global.css'))
         //.pipe(minifyCss())
         .pipe(gulp.dest('public/build/datetree/style'))
 });
 
-gulp.task('dt_js',["dt_css"], function(){
+gulp.task('dt_js',[], function(){
     console.log("dt_js");
     return gulp.src(['src/app/datetree/js/**/*.js'])
         .pipe(jshint())
@@ -54,7 +59,7 @@ gulp.task('dt_jade',["dt_js"], function(){
 
 
 gulp.task('dt_watch',function(cb){
-    gulp.watch('src/app/datetree/**/*', ['dt_jade']);
+    gulp.watch('src/app/datetree/**/*', ['dt_jade',"dt_css",'dt_js']);
 });
 
 gulp.task('dt',["dt_watch"]);

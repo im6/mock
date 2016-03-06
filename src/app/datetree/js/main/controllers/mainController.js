@@ -3,7 +3,9 @@ angular.module("app")
         "$scope",
         "$rootScope",
         function($scope,$rootScope){
-            //alert("come to the main controler");
+            _.merge($scope, {
+                viewModel: "test"
+            });
         }])
     .controller("lyt_headCtrl", [
         "$scope",
