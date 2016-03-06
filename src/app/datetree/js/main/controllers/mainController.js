@@ -12,9 +12,11 @@ angular.module("app")
         "$rootScope",
         function($scope,$rootScope){
             //alert("come to the main controler");
+
         }])
     .controller("lyt_sidebarCtrl", [
         "$scope",
+
         "$rootScope",
         function($scope,$rootScope){
         }])

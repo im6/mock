@@ -27,6 +27,8 @@
     "socket.io": "^1.4.5"
   },
   "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "browser-sync-spa": "^1.0.3",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-bower": "0.0.13",

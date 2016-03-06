@@ -12,8 +12,25 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
+    util = require('util'),
+    browserSync = require('browser-sync'),
+    browserSyncSpa = require('browser-sync-spa'),
     sourceMaps = require('gulp-sourcemaps');
 
+/*==============  browser sync  =================*/
+//browserSync.use(browserSyncSpa({
+//    selector: "[ng-app]"
+//}));
+
+gulp.task('rebuildDt', ['dt_jade',"dt_css",'dt_js'], browserSync.reload);
+gulp.task('serve', [], function () {
+    browserSync({
+        server: {
+            baseDir:'/build/'
+        }
+    });
+    gulp.watch('src/app/datetree/**/*', ['rebuildDt']);
+});
 /*==========   for dateTree ===============*/
 gulp.task("dt_clean1", function (cb) {
     rimraf('public/build/datetree/js', cb);
