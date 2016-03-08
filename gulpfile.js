@@ -55,7 +55,7 @@ gulp.task('dt_assetJs',[], function(cb){
         }
     }))
         .pipe(f1)
-        //.pipe(concat('lib1.js'))
+        .pipe(concat('lib1.js'))
         //.pipe(uglify())
         .pipe(gulp.dest('public/build/datetree/js'));
 });
@@ -70,7 +70,7 @@ gulp.task('dt_assetCss',[], function(cb){
         }
     }))
         .pipe(f1)
-        //.pipe(concat('style1.css'))
+        .pipe(concat('style1.css'))
         .pipe(gulp.dest('public/build/datetree/css'));
 });
 
@@ -181,25 +181,25 @@ gulp.task('watch_au', function(){
 /*========== for the angular dash page optimziation =========== */
 
 
-gulp.task('ds_bower', function() {
-    return gulp.src(mainBowerFiles(), { base: 'vendor' })
-        //.pipe(concat('bundle.js'))
-        .pipe(gulp.dest('public/build/dash/'))
-});
-
-
-gulp.task('ds_jade', function () {
-    return gulp.src('src/app/dash/modules/**/*.jade')
-        .pipe(gulpJade({
-            jade: jade,
-            pretty: true
-        }))
-        .pipe(gulp.dest('public/build/dash/views'))
-});
-
-
-
-gulp.task('ds',["ds_bower"]);
+//gulp.task('ds_bower', function() {
+//    return gulp.src(mainBowerFiles(), { base: 'vendor' })
+//        //.pipe(concat('bundle.js'))
+//        .pipe(gulp.dest('public/build/dash/'))
+//});
+//
+//
+//gulp.task('ds_jade', function () {
+//    return gulp.src('src/app/dash/modules/**/*.jade')
+//        .pipe(gulpJade({
+//            jade: jade,
+//            pretty: true
+//        }))
+//        .pipe(gulp.dest('public/build/dash/views'))
+//});
+//
+//
+//
+//gulp.task('ds',["ds_bower"]);
 
 
 gulp.task('default',[]);
