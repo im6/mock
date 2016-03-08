@@ -13,14 +13,13 @@ var gulp = require('gulp'),
     mainBowerFiles = require('main-bower-files'),
     minifyCss = require('gulp-minify-css'),
     util = require('util'),
+    filter = require('gulp-filter'),
+    cleanCSS = require('gulp-clean-css'),
     browserSync = require('browser-sync'),
     browserSyncSpa = require('browser-sync-spa'),
     sourceMaps = require('gulp-sourcemaps');
 
 /*==============  browser sync  =================*/
-//browserSync.use(browserSyncSpa({
-//    selector: "[ng-app]"
-//}));
 
 gulp.task('rebuildDt', ['dt_jade',"dt_css",'dt_js'], browserSync.reload);
 gulp.task('serve', [], function () {
@@ -31,6 +30,8 @@ gulp.task('serve', [], function () {
     });
     gulp.watch('src/app/datetree/**/*', ['rebuildDt']);
 });
+
+
 /*==========   for dateTree ===============*/
 gulp.task("dt_clean1", function (cb) {
     rimraf('public/build/datetree/js', cb);
@@ -43,6 +44,22 @@ gulp.task('dt_asset',[], function(){
     return gulp.src(['src/app/datetree/asset/**/*'])
         .pipe(gulp.dest('public/build/datetree/asset'))
 });
+
+gulp.task('dt_assetJs',[], function(cb){
+    var f1 = filter(['**/*.js']);
+    return gulp.src(mainBowerFiles({
+        paths: {
+            bowerDirectory: 'vendor',
+            bowerrc: '.bowerrc',
+            bowerJson: 'bower.json'
+        }
+    }))
+        .pipe(f1)
+        //.pipe(concat('lib1.js'))
+        //.pipe(uglify())
+        .pipe(gulp.dest('public/temp'));
+});
+
 
 gulp.task('dt_css',[], function(){
     console.log("dt_css");
@@ -83,6 +100,7 @@ gulp.task('dt',["dt_watch"]);
 
 
 /*==========   for the home optmization ===============*/
+/*==========   sealed and fininshed ===============*/
 gulp.task("hm_clean", function (cb) {
     rimraf('public/build/home', cb);
 });
@@ -143,14 +161,6 @@ gulp.task('ds_jade', function () {
 
 
 gulp.task('ds',["ds_bower"]);
-/*========== Dash end for the gulp optimization =========== */
-gulp.task('loginStyle',["clean_css"], function(){
-    return gulp.src(['public/app/homepage/css/*.css', '!public/app/homepage/css/style_all.css'])
-        .pipe(concat('style.css'))
-        .pipe(minifyCss())
-        .pipe(gulp.dest('public/build/homepage/css'))
-});
-
 
 
 gulp.task('default',[]);
