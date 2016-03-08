@@ -129,9 +129,10 @@ gulp.task("au_clean", function (cb) {
     rimraf('public/build/auth', cb);
 });
 gulp.task('au_css', function(){
-    return gulp.src(['src/app/auth/css/*.css'])
+    return gulp.src(['src/app/auth/css/*.css','src/app/auth/css/style.less'])
+        .pipe(less())
         .pipe(concat('style.min.css'))
-        .pipe(minifyCss())
+        //.pipe(minifyCss())
         .pipe(gulp.dest('public/build/auth/css'))
 });
 gulp.task('au_font', function(){
@@ -139,6 +140,9 @@ gulp.task('au_font', function(){
         .pipe(gulp.dest('public/build/auth/fonts'))
 });
 gulp.task('au',["au_css",'au_font']);
+gulp.task('watch_au', function(){
+   gulp.watch('src/app/auth/*/**',['au']);
+});
 /*========== for the angular dash page optimziation =========== */
 
 

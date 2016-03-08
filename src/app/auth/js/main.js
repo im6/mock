@@ -7,6 +7,7 @@ require.config({
     }
 });
 
+
 require(['jquery'],function ($) {
     $(document).ready(function(){
         $("#login-button").click(function (event) {
