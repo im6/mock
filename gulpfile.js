@@ -57,9 +57,44 @@ gulp.task('dt_assetJs',[], function(cb){
         .pipe(f1)
         //.pipe(concat('lib1.js'))
         //.pipe(uglify())
-        .pipe(gulp.dest('public/temp'));
+        .pipe(gulp.dest('public/build/datetree/js'));
 });
 
+gulp.task('dt_assetCss',[], function(cb){
+    var f1 = filter(['**/*.css']);
+    return gulp.src(mainBowerFiles({
+        paths: {
+            bowerDirectory: 'vendor',
+            bowerrc: '.bowerrc',
+            bowerJson: 'bower.json'
+        }
+    }))
+        .pipe(f1)
+        //.pipe(concat('style1.css'))
+        .pipe(gulp.dest('public/build/datetree/css'));
+});
+
+gulp.task('dt_assetFont',[], function(cb){
+    var f1 = filter([
+        '**/*.otf',
+        '**/*.eot',
+        '**/*.svg',
+        '**/*.ttf',
+        '**/*.woff',
+        '**/*.woff2'
+    ]);
+    return gulp.src(mainBowerFiles({
+        paths: {
+            bowerDirectory: 'vendor',
+            bowerrc: '.bowerrc',
+            bowerJson: 'bower.json'
+        }
+    }))
+        .pipe(f1)
+        .pipe(gulp.dest('public/build/datetree/fonts'));
+});
+
+gulp.task('dt_bower',['dt_assetJs','dt_assetCss', 'dt_assetFont']);
 
 gulp.task('dt_css',[], function(){
     console.log("dt_css");
