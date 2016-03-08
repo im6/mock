@@ -1,8 +1,8 @@
 extends layout
 
 block content1
-    div(ng-include="'build/datetree/views/main_head.html'",ng-controller="lyt_headCtrl")
     div(ng-include="'build/datetree/views/main_sidebar.html'",ng-controller="lyt_sidebarCtrl")
+    //div(ng-include="'build/datetree/views/main_head.html'",ng-controller="lyt_headCtrl")
     div(ng-include="'build/datetree/views/main_quickbar.html'",ng-controller="lyt_quickbarCtrl")
     div(ng-include="'build/datetree/views/main_footer.html'", ng-controller="lyt_footerCtrl")
 

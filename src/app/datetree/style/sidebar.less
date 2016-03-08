@@ -1,3 +1,195 @@
-.base{
-  height: 1px;
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+.dt_sidebar{
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    line-height: 22px;
+    font-family: 'Open Sans';
+    color: #fff;
+    font-weight: 600;
+  }
+
+  h2 {
+    margin: 0 0 6px 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'Open Sans';
+    color: #555;
+    font-weight: 600;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 13px;
+    font-family: 'Open Sans';
+    color: #b3b3b3;
+    font-weight: 400;
+    transition: opacity 0.2s;
+  }
+
+  h4 {
+    margin: -13px 0 0 0;
+    padding: 0;
+    font-size: 13px;
+    line-height: 13px;
+    font-family: 'Open Sans';
+    color: #b3b3b3;
+    font-weight: 400;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .wrapper {
+    padding: 0;
+    width: 330px;
+    position: absolute;
+    left: 50%;
+    top: 13%;
+    transform: translate(-50%, -50%);
+  }
+
+  .screen {
+    padding: 0;
+    width: 330px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0);
+  }
+
+  .header {
+    background: linear-gradient(90deg, #6980f5 0%, #9d89f7 100%);
+    width: 306px;
+    height: 22px;
+    padding: 0;
+    margin: 0;
+    padding: 14px 8px 14px 18px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .child1,
+  .child2,
+  .child3 {
+    background: #fff;
+    border-left: 1px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+    width: 294px;
+    height: 36px;
+    padding: 14px 18px;
+    margin: 0;
+    transition: transform 0.2s ease-in, margin 0.2s ease-out;
+  }
+
+  input[type=checkbox] {
+    display: none;
+    padding: 0;
+  }
+
+  label {
+    background: #f0f0f0;
+    width: 34px;
+    height: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s ease-in;
+    position: absolute;
+    right: 18px;
+    margin-top: 24px;
+  }
+
+  label:after {
+    background-color: #fff;
+    content: '';
+    border: 1px solid #e0e0e0;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    z-index: 1;
+  }
+
+  .screen > #Time:checked ~ label.Time:after {
+    top: 1px;
+    left: 19px;
+    transition: all 0.2s ease-in;
+  }
+
+  .screen > #Time:checked ~ label.Time {
+    background-color: #8484f6;
+    transition: background 0.2s ease-in;
+  }
+
+  .screen > #Zone:checked ~ label.Zone:after {
+    top: 1px;
+    left: 19px;
+    transition: all 0.2s ease-in;
+  }
+
+  .screen > #Zone:checked ~ label.Zone {
+    background-color: #8484f6;
+    transition: background 0.2s ease-in;
+  }
+
+  .screen > #Format:checked ~ label.Format:after {
+    top: 1px;
+    left: 19px;
+    transition: all 0.2s ease-in;
+  }
+
+  .screen > #Format:checked ~ label.Format {
+    background-color: #8484f6;
+    transition: background 0.2s ease-in;
+  }
+
+  .child2 {
+    position: relative;
+    transform-origin: 50% 70%;
+    z-index: -5;
+  }
+
+  .child3 {
+    position: relative;
+    transform-origin: 50% 40%;
+    z-index: -10;
+  }
+
+  .screen > #Time:checked ~ .dateTime .child2 {
+    margin-top: -65px;
+    transform: scale(0.7, 0.7);
+    transition: transform 0.2s ease-out, margin 0.2s ease-in;
+  }
+
+  .screen > #Time:checked ~ .dateTime .child3 {
+    margin-top: -65px;
+    transform: scale(0.6, 0.6);
+    transition: transform 0.2s ease-out, margin 0.2s ease-in;
+  }
+
+  .screen > #Zone:checked ~ .timeZone .child2 {
+    margin-top: -65px;
+    transform: scale(0.7, 0.7);
+    transition: transform 0.2s ease-out, margin 0.2s ease-in;
+  }
+
+  .screen > #Format:checked ~ .hourFormat h3 {
+    opacity: 0;
+    transition: all 0.2s;
+  }
+
+  .screen > #Format:checked ~ .hourFormat h4 {
+    opacity: 1;
+    transition: all 0.2s;
+  }
 }
+
