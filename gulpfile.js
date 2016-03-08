@@ -129,7 +129,7 @@ gulp.task("au_clean", function (cb) {
     rimraf('public/build/auth', cb);
 });
 gulp.task('au_css', function(){
-    return gulp.src(['src/app/auth/css/*.css','src/app/auth/css/style.less'])
+    return gulp.src(['src/app/auth/css/*.css','src/app/auth/css/form.less'])
         .pipe(less())
         .pipe(concat('style.min.css'))
         //.pipe(minifyCss())
