@@ -1,4 +1,8 @@
-
+/*
+*
+* sidebar url: http://tympanus.net/Tutorials/AnimatedBorderMenus/index2.html
+*
+* */
 angular.module("app")
     .controller("main_sidebarCtrl", [
         "$scope",
