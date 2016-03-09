@@ -24,7 +24,5 @@ angular.module("app",[
     .run([
         "$rootScope",
         "$state",
-        "sidebarService",
-        function($rootScope, $state, sidebarService) {
-            sidebarService.initSidebar();
+        function($rootScope, $state) {
         }]);

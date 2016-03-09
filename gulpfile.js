@@ -89,7 +89,6 @@ gulp.task('dt_assetFont',[], function(cb){
 gulp.task('dt_bower',['dt_assetJs','dt_assetCss', 'dt_assetFont']);
 // ====  bower end above  =======
 gulp.task('dt_css',[], function(){
-    console.log("doing the css stuff here");
     return gulp.src(['src/app/datetree/style/*.less','src/app/datetree/asset/**/*.css'])
         .pipe(less())
         //.pipe(autoprefixer())

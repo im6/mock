@@ -9,6 +9,10 @@ angular.module("app")
         "$rootScope",
         "sidebarService",
         function($scope, $rootScope,sidebarService){
+            setTimeout(function(){
+                sidebarService.initSidebar();
+            });
+
             _.merge($scope, {
                 closeMenu: function(){
                     sidebarService.resetMenu();
