@@ -4,4 +4,22 @@ angular.module("app",[
     "ui.bootstrap",
     "ngResource",
     "ngAnimate"
-]);
+])
+    .config(['$stateProvider',
+        '$urlRouterProvider',
+        function($stateProvider, $urlRouterProvider) {
+            $urlRouterProvider.otherwise("/people");
+            $stateProvider
+                .state("people",{
+                    url: "/people",
+                    templateUrl: "/build/datetree/views/ppl_main.html",
+                    controller: "ppl_mainCtrl"
+                });
+    }])
+    .run([
+        "$rootScope",
+        "$state",
+        "sidebarService",
+        function($rootScope, $state, sidebarService) {
+            sidebarService.initSidebar();
+        }]);
