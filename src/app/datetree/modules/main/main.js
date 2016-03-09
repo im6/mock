@@ -14,6 +14,11 @@ angular.module("app",[
                     url: "/people",
                     templateUrl: "/build/datetree/views/ppl_main.html",
                     controller: "ppl_mainCtrl"
+                })
+                .state("chat",{
+                    url: "/chat",
+                    templateUrl: "/build/datetree/views/chat_main.html",
+                    controller: "chat_mainCtrl"
                 });
     }])
     .run([

@@ -1,15 +1,9 @@
 angular.module("app")
-    .controller("mainController", [
+    .controller("main_ctrl", [
         "$scope",
         "$rootScope",
         function($scope,$rootScope){
             _.merge($scope, {
                 viewModel: "test"
             });
-        }])
-    .controller("lyt_footerCtrl", [
-        "$scope",
-        "$rootScope",
-        function($scope,$rootScope){
-
         }]);

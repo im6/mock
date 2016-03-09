@@ -3,17 +3,17 @@ extends layout
 block content1
     .maincontainer
         .div(ui-view='')
-    nav#bt-menu.bt-menu
+    nav#bt-menu.bt-menu(ng-controller="main_sidebarCtrl")
         a.bt-menu-trigger(href='#')
             span Menu
         ul
             li
-                a.bt-icon.fa.fa-users(href='#/people',title="People")
+                a.bt-icon.fa.fa-users(href='#/people',title="People", ng-click="closeMenu()")
             li
-                a.bt-icon.fa.fa-paper-plane(href='#/chat',title="Chat")
+                a.bt-icon.fa.fa-paper-plane(href='#/chat',title="Chat", ng-click="closeMenu()")
             li
-                a.bt-icon.fa.fa-search(href='#/search',title="Search")
+                a.bt-icon.fa.fa-search(href='#/search',title="Search", ng-click="closeMenu()")
             li
-                a.bt-icon.fa.fa-paw(href='#/profile',title="Profile") Profile
+                a.bt-icon.fa.fa-paw(href='#/profile',title="Profile", ng-click="closeMenu()")
             li
-                a.bt-icon.fa.fa-share-alt(href='#/share',title="Share")
+                a.bt-icon.fa.fa-share-alt(href='#/share',title="Share", ng-click="closeMenu()")
