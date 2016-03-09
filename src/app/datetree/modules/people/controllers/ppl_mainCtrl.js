@@ -1,3 +1,7 @@
+/*
+* Caption Hover effect
+* http://tympanus.net/Tutorials/CaptionHoverEffects/index3.html
+* */
 angular.module('app')
     .controller('ppl_mainCtrl', [
         '$scope',
