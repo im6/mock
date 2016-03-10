@@ -2,13 +2,5 @@ nav#bt-menu.bt-menu
     a.bt-menu-trigger(href='#')
         span Menu
     ul
-        li
-            a.bt-icon.fa.fa-users(href='#/people',title="People", ng-click="closeMenu()")
-        li
-            a.bt-icon.fa.fa-paper-plane(href='#/chat',title="Chat", ng-click="closeMenu()")
-        li
-            a.bt-icon.fa.fa-search(href='#/search',title="Search", ng-click="closeMenu()")
-        li
-            a.bt-icon.fa.fa-paw(href='#/profile',title="Profile", ng-click="closeMenu()")
-        li
-            a.bt-icon.fa.fa-share-alt(href='#/share',title="Share", ng-click="closeMenu()")
+        li(ng-repeat="onerow in menulist")
+            a.bt-icon.fa(href='{{onerow.url}}',title="{{onerow.title}}", ng-click="closeMenu()", ng-class="onerow.icon")
