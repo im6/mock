@@ -6,12 +6,12 @@ module.exports = {
     }),
 
     signInSuccess: function(req, res, next){
-        res.redirect("/dash");
+        res.redirect("/datetree");
     },
 
     main: function(req, res, next) {
         if(typeof req.user != "undefined"){
-            res.redirect("/dash");
+            res.redirect("/datetree");
         }else{
             res.render("auth/login");
         }
