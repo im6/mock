@@ -7,10 +7,13 @@
                     figcaption
                         h3.text-left
                             i.fa(ng-class='{"fa-mars boycolor": onebox.isMale==1, "fa-venus girlcolor":onebox.isMale==0}')
-                            |{{onebox.name}}
+                            |{{onebox.name}} ({{onebox.age}})
+
+
 
                         h4.text-right
-                            i.fa.fa-thumbs-o-up.text-success
-                            i.fa.fa-thumbs-o-up.text-info
-                            i.fa.fa-thumbs-o-up.text-warning
+                            i.fa.fa-heart.text-danger(ng-click="like(onebox.id)")
+                            i.fa.fa-thumbs-o-up.text-info(ng-click="like(onebox.id)")
+                            i.fa.fa-user-plus.text-warning(ng-click="add(onebox.id)")
+                            i.fa.fa-paper-plane.text-info(ng-click="msg(onebox.id)")
 
