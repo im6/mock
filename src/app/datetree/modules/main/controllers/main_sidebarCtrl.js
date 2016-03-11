@@ -8,12 +8,14 @@ angular.module("app")
         "$scope",
         "$rootScope",
         "sidebarService",
-        function($scope, $rootScope,sidebarService){
+        "$timeout",
+        function($scope, $rootScope,sidebarService,$timeout){
             setTimeout(function(){
                 sidebarService.initSidebar();
             });
 
             _.merge($scope, {
+                showTrigger: false,
                 menulist: [
                     {url:"#/people", icon:"fa-users", title:"People"},
                     {url:"#/chat", icon:"fa-paper-plane", title:"Chat"},
@@ -25,4 +27,9 @@ angular.module("app")
                     sidebarService.resetMenu();
                 }
             });
+            $timeout(function(){
+                $scope.showTrigger = true;
+            },1000);
+
+
         }]);

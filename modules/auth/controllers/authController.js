@@ -15,7 +15,6 @@ module.exports = {
         }else{
             res.render("auth/login");
         }
-
     },
 
     checkAuth: function(req, res, next){
