@@ -3,7 +3,8 @@ angular.module("app",[
     "ui.router",
     "ui.bootstrap",
     "ngResource",
-    "ngAnimate"
+    "ngAnimate",
+    "btford.socket-io"
 ])
     .config(['$stateProvider',
         '$urlRouterProvider',

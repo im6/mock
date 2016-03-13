@@ -2,11 +2,16 @@ angular.module("app")
     .service('mainService',[
         "$rootScope",
         "utilityService",
-        function($rootScope, utilityService){
+        "socketFactory",
+        function($rootScope, utilityService,socketFactory){
             var privateFn = {
             };
 
             var output = {
+                socket: function(){
+                    return socketFactory();
+                }
+
             };
 
             return output;
