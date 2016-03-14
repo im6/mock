@@ -17,6 +17,7 @@ var gulp = require('gulp'),
     cleanCSS = require('gulp-clean-css'),
     browserSync = require('browser-sync'),
     browserSyncSpa = require('browser-sync-spa'),
+    addsrc = require('gulp-add-src'),
     sourceMaps = require('gulp-sourcemaps');
 
 /*==============  browser sync  =================*/
@@ -47,6 +48,7 @@ gulp.task('dt_assetJs',[], function(cb){
         }
     }))
         .pipe(f1)
+        .pipe(addsrc('src/app/datetree/asset/nonBower/**/*.js'))
         .pipe(concat('lib1.js'))
         //.pipe(uglify())
         .pipe(gulp.dest('public/build/datetree/js'));
