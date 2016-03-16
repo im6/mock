@@ -10,7 +10,6 @@ angular.module("app")
 
             var socket = mainService.socket();
             socket.on("connected", function(res){
-                debugger;
                 socket.emit("ng_response",{
                     caller: "angualr"
                 });
