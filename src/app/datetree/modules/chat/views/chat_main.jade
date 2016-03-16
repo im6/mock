@@ -12,7 +12,7 @@
                         .bubble(ng-class="{'bubble-alt': onemsg.me, 'white': onemsg.me}", ng-repeat="onemsg in msglist")
                             p
                                 |{{onemsg.msg}}
-                        #bottomTxt.bubble(style={border: "1px solid red", height: "10px"})
+                        #bottomTxt.bubble(style={visibility: "hidden"})
                 .panel-footer
                     .input-group
                         input.form-control(type="text", placeholder="Send message here.", ng-model="inputMsg", ng-keypress="sendKey($event)")

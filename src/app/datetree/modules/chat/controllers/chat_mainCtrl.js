@@ -3,7 +3,8 @@ angular.module('app')
         "$scope",
         "$location",
         "$anchorScroll",
-        function($scope,$location,$anchorScroll){
+        "$timeout",
+        function($scope,$location,$anchorScroll,$timeout){
             _.merge($scope,{
                 inputMsg: null,
                 msglist:[
@@ -20,9 +21,15 @@ angular.module('app')
                         msg: $scope.inputMsg,
                         me: true
                     });
+                    $scope.msglist.push({
+                        msg: $scope.inputMsg,
+                        me: false
+                    });
                     $scope.inputMsg = "";
-                    $location.hash('bottomTxt');
-                    $anchorScroll();
+                    $timeout(function(){
+                        $location.hash('bottomTxt');
+                        $anchorScroll();
+                    },100);
                 },
                 sendKey: function(event){
                     var me = $scope;
