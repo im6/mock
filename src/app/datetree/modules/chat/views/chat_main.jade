@@ -5,45 +5,17 @@
             .panel.panel-default
                 .panel-heading
                     h3
-
-                    | doing some thing function
+                        | doing some thing function
                 .panel-body
                     .chatContainer
                         p.datestamp May 20, 2014, 4:16 PM
-                        .bubble
-                            p Hey how's it going?
-                        .bubble.bubble-alt.white
-                            p Just sending out random SMS to people
-                        .bubble
-                            p Cool, cool.
-                        .bubble
-                            p Sometimes I do that too. Like right now.
-                        .bubble.bubble-alt.white
+                        .bubble(ng-class="{'bubble-alt': !onemsg.me, 'white': onemsg.me}", ng-repeat="onemsg in msglist")
                             p
-                                | So how's life? Anything interesting? I'm okay just hanging around doing nothing staring out the window, thinking I should go outside but eh.
-                        .bubble
-                            p Yeah sweet bro. Today I'm feeling pink.
-                        .bubble.bubble-alt.white
-                            p I'm kinda going yellow today.
-                        .bubble.bubble-alt.white
-                            p No wait red.
-                        .bubble
-                            p Hey how's it going?
-                        .bubble.bubble-alt.white
-                            p Just sending out random SMS to people
-                                | So how's life? Anything interesting? I'm okay just hanging around doing nothing staring out the window, thinking I should go outside but eh.
-                                | So how's life? Anything interesting? I'm okay just hanging around doing nothing staring out the window, thinking I should go outside but eh.
-                        .bubble
-                            p Cool, cool.
-                        .bubble
-                            p Sometimes I do that too. Like right now.
-                        .bubble.bubble-alt.white
-                            p
-                                | So how's life? Anything interesting? I'm okay just hanging around doing nothing staring out the window, thinking I should go outside but eh.
-                        .bubble
-                            p Yeah sweet bro. Today I'm feeling pink.
-                        .bubble.bubble-alt.white
-                            p I'm kinda going yellow today.
-                        .bubble.bubble-alt.white
-                            p No wait red.
+                                |{{onemsg.msg}}
+                .panel-footer
+                    .input-group
+                        input.form-control(type="text", placeholder="Send message here.")
+                        span.input-group-btn
+                            button.btn.btn-primary(type="button")
+                                |Send
         .col-lg-2.col-md-2
