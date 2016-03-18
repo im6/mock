@@ -103,6 +103,7 @@ gulp.task('dt_js',[], function(){
     console.log("dt_js");
     return gulp.src(['src/app/datetree/modules/**/*.js'])
         .pipe(jshint())
+        .pipe(jshint.reporter('default'))
         .pipe(concat("app.js"))
         //.pipe(uglify())
         .pipe(gulp.dest('public/build/datetree/js'));

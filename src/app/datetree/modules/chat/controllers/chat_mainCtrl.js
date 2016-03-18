@@ -31,6 +31,7 @@ angular.module('app')
                         $anchorScroll();
                     },100);
                 },
+
                 sendKey: function(event){
                     var me = $scope;
                     if (event.keyCode === 13){
