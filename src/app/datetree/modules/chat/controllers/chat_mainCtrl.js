@@ -37,7 +37,6 @@ angular.module('app')
                     if (event.keyCode === 13){
                         me.send();
                     }
-
                 }
             });
         }
