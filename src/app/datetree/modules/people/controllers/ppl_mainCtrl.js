@@ -32,6 +32,18 @@ angular.module('app')
                });
             });
 
+            var oreq = new XMLHttpRequest();
+            oreq.addEventListener("load", function(resEvent){
+                var xreq = this;
+                var res = JSON.parse(xreq.response);
+                debugger;
+            });
+            oreq.open("GET","/datetree/test");
+            oreq.send();
+
+
+
+
         }
 
     ]);

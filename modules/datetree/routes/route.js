@@ -6,6 +6,11 @@ var express = require('express'),
 router.get('/tree', datetreeCtrl.getTree);
 router.get('/date', datetreeCtrl.getDate);
 router.get('/', datetreeCtrl.main);
+router.get('/test', function(req,res,next){
+   res.status(404).json({
+       status: "ok haha"
+   }) ;
+});
 
 
 module.exports = router;
