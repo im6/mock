@@ -1,9 +1,0 @@
-div(ng-controller='dtr_uploadController')
-    input(type='file', nv-file-select='', uploader2='uploader1')
-    br
-    ul
-        li(ng-repeat='item in uploader.queue')
-            | Name:
-            span(ng-bind='item.file.name')
-            br
-            button(ng-click='item.upload()') upload

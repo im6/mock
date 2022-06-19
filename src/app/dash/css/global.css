@@ -1,7 +1,0 @@
-.post.out.ng-enter {
-    animation: bounceInUp 1s;
-}
-
-.post.in.ng-enter {
-    animation: bounceIn 1s;
-}

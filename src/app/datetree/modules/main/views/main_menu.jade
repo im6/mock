@@ -1,6 +1,0 @@
-nav#bt-menu.bt-menu
-    a.bt-menu-trigger(href='#',ng-show="showTrigger")
-        span Menu
-    ul
-        li(ng-repeat="onerow in menulist")
-            a.bt-icon.fa(href='{{onerow.url}}',title="{{onerow.title}}", ng-click="closeMenu()", ng-class="onerow.icon")
