@@ -1,8 +1,10 @@
 {
-  "name": "username-detector",
+  "name": "mock",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/im6/username-detector.git",
-  "author": "im6 <ee2win@gmail.com>",
-  "license": "MIT"
+  "repository": "https://github.com/im6/mock.git",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
